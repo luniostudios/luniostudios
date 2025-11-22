@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Code2 } from 'lucide-react';
+import Link from 'next/link';
 
 interface HeaderProps {
   activeSection: string;
@@ -22,10 +23,8 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   }, []);
 
   const navItems = [
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'skills', label: 'Tools & Skills' },
+    { id: 'contact', label: 'Contact Us' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -45,16 +44,18 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection('home')}>
+          <Link href={"/"}>
+          <div className="flex items-center gap-2 cursor-pointer">
             <div className="p-2 rounded-lg">
-              <img src="/images/logos.png" width={"50px"} alt="" />
+              <img src="/images/logos.png" width={"30px"} alt="" />
             </div>
             <span className="text-3xl font-bold text-white">
               LUNIO Studios
             </span>
           </div>
+          </Link>
 
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-6 max-md:hidden">
             <a
               href="https://github.com"
               target="_blank"
@@ -80,6 +81,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
+            <Link href={"/projects"} className='text-sm font-medium text-gray-300 hover:text-gray-350'>Our Portfolio</Link>
             {navItems.map((item) => (
               <button
                 key={item.id}

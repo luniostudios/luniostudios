@@ -42,8 +42,8 @@ const Hero = () => {
       <div className="container mx-auto mt-16 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
 
-          <h1 className="text-8xl font-bold mb-4 text-white">
-            Make your LIFE easier with our Studio
+          <h1 className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
+            Make your Life Easier with our Studio
           </h1>
 
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">

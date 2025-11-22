@@ -1,77 +1,56 @@
+import React from 'react';
 import { Code2, Database, Cloud, Smartphone, Terminal, Palette } from 'lucide-react';
 
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
 const Skills = () => {
-  const skillCategories = [
+  const skillCategories: { icon: string | IconComponent; title: string }[] = [
     {
-      icon: Code2,
-      title: 'Frontend Development',
-      skills: [
-        { name: 'React/Next.js', level: 95 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Tailwind CSS', level: 92 },
-        { name: 'Vue.js', level: 85 },
-      ],
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Freact.svg?alt=media&token=b7420ed5-06a4-43e2-839e-b34323845b66",
+      title: 'React/Next.js',
     },
     {
-      icon: Terminal,
-      title: 'Backend Development',
-      skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Python', level: 88 },
-        { name: 'GraphQL', level: 85 },
-        { name: 'REST APIs', level: 93 },
-      ],
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fnode-js.svg?alt=media&token=1c4825d1-1e9c-4efc-aaf9-85bed64c5dad",
+      title: 'Node.js',
+    },
+    {
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fpython.svg?alt=media&token=f6e852e9-bb53-4653-974f-b719b2557cb1",
+      title: 'Python',
+    },
+    {
+      icon: Database,
+      title: 'MongoDB',
+    },
+    {
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fhtml5.svg?alt=media&token=4f288874-f069-4190-ad3a-526c0aa73035",
+      title: 'HTML',
+    },
+    {
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fcss3.svg?alt=media&token=7bc27d3c-d140-4cea-b7a2-32b191908f38",
+      title: 'CSS',
+    },
+    {
+      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Ffigma.svg?alt=media&token=cfaa8dc7-09cc-4b66-b929-8cae68e3ad42",
+      title: 'Figma',
     },
     {
       icon: Database,
       title: 'Databases',
-      skills: [
-        { name: 'PostgreSQL', level: 87 },
-        { name: 'MongoDB', level: 85 },
-        { name: 'Redis', level: 80 },
-        { name: 'Supabase', level: 90 },
-      ],
     },
     {
-      icon: Cloud,
-      title: 'Cloud & DevOps',
-      skills: [
-        { name: 'AWS', level: 85 },
-        { name: 'Docker', level: 88 },
-        { name: 'Kubernetes', level: 80 },
-        { name: 'CI/CD', level: 87 },
-      ],
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile Development',
-      skills: [
-        { name: 'React Native', level: 87 },
-        { name: 'Flutter', level: 82 },
-        { name: 'iOS/Android', level: 85 },
-        { name: 'PWA', level: 90 },
-      ],
-    },
-    {
-      icon: Palette,
-      title: 'Design & Tools',
-      skills: [
-        { name: 'Figma', level: 88 },
-        { name: 'UI/UX Design', level: 85 },
-        { name: 'Git', level: 95 },
-        { name: 'Agile/Scrum', level: 90 },
-      ],
+      icon: Database,
+      title: 'Databases',
     },
   ];
 
   return (
     <section id="skills" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-stone-950" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Skills & Expertise
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Tools & Skills
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             A comprehensive toolkit of modern technologies and frameworks I work with
@@ -80,60 +59,27 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, idx) => {
-            const Icon = category.icon;
             return (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-slate-900 to-slate-800 p-6 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/20"
+                className="bg-linear-to-br from-stone-900 to-stone-800 p-6 rounded-xl border border-white/10 hover:border-green-100/50 transition-all duration-500 hover:shadow-sm hover:shadow-green-500/20"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-cyan-400" />
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-linear-to-br from-stone-500/20 to-stone-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    {typeof category.icon === 'string' ? (
+                      <img src={category.icon} alt={category.title} className="w-7 h-7" />
+                    ) : (
+                      (() => {
+                        const Icon = category.icon as IconComponent;
+                        return <Icon className="w-7 h-7 text-green-400" />;
+                      })()
+                    )}
                   </div>
                   <h3 className="text-xl font-bold text-white">{category.title}</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIdx) => (
-                    <div key={skillIdx}>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-gray-300">{skill.name}</span>
-                        <span className="text-xs text-cyan-400 font-semibold">{skill.level}%</span>
-                      </div>
-                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000 ease-out"
-                          style={{
-                            width: `${skill.level}%`,
-                            animation: `slideIn 1s ease-out ${skillIdx * 0.1}s forwards`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { label: 'Years Experience', value: '5+' },
-            { label: 'Projects Completed', value: '50+' },
-            { label: 'Happy Clients', value: '30+' },
-            { label: 'Code Commits', value: '10K+' },
-          ].map((stat, idx) => (
-            <div
-              key={idx}
-              className="text-center p-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
