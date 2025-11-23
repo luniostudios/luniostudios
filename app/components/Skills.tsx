@@ -1,9 +1,13 @@
 import React from 'react';
 import { Code2, Database, Cloud, Smartphone, Terminal, Palette } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
 const Skills = () => {
+
+  const { t } = useLanguage();
+
   const skillCategories: { icon: string | IconComponent; title: string }[] = [
     {
       icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Freact.svg?alt=media&token=b7420ed5-06a4-43e2-839e-b34323845b66",
@@ -55,6 +59,7 @@ const Skills = () => {
     },
   ];
 
+
   return (
     <section id="skills" className="py-20 relative">
       <div className="absolute inset-0 bg-stone-950" />
@@ -62,10 +67,10 @@ const Skills = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Tools & Skills
+            {t('skills.title')}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit of modern technologies and frameworks I work with
+            {t('skills.description')}
           </p>
         </div>
 

@@ -16,7 +16,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
   const pathname = usePathname();
-  const {t} = useLanguage();
+  const { t } = useLanguage();
 
   // Keep a client-only copy of the pathname to avoid rendering route-dependent UI during SSR
   const [currentPath, setCurrentPath] = useState<string | null>(null);
@@ -65,7 +65,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               <div className="p-2 rounded-lg">
                 <img src="/images/logos.png" width={"30px"} alt="" />
               </div>
-              <span className="font-gluten text-4xl font-bold text-white max-md:text-2xl">
+              <span className="font-gluten text-4xl font-bold text-white max-md:text-xl">
                 LUNIO Studios
               </span>
             </div>
@@ -142,6 +142,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
         </div>
 
         {isMobileMenuOpen && (
+
           <div className="relative w-full h-full mt-4 py-4 border-t border-white/10">
             {navItems.map((item) => {
               const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');

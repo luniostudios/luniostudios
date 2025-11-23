@@ -1,8 +1,10 @@
 import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const {t} = useLanguage();
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com', label: 'GitHub' },
@@ -12,10 +14,10 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: 'Our Portfolio', href: '/projects' },
-    { label: 'Tools & Skills', href: '/#skills' },
-    { label: 'The Team', href: '/#team' },
-    { label: 'Contact Us', href: '/#contact' },
+    { id: 'projects', label: `${t('header.portfolio')}`, href: '/projects' },
+    { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
+    { id: 'team', label: `${t('header.team')}`, href: '/#team' },
+    { id: 'contact', label: `${t('header.contact')}`, href: '/#contact' },
   ];
 
   return (
@@ -36,7 +38,7 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Crafting exceptional digital experiences with cutting-edge technologies. Passionate about clean code, innovative solutions, and pushing the boundaries of what's possible.
+              {t('hero.description')}
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((link) => {
@@ -58,7 +60,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4">
+              {t('footer.quickLinks')}
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -74,16 +78,18 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Get In Touch</h4>
+            <h4 className="text-white font-semibold mb-4">
+              {t('footer.contactUs')}
+            </h4>
             <div className="space-y-3">
               <p className="text-gray-400 text-sm">
-                Open to freelance opportunities and collaborations
+                {t('footer.contactDescription')}
               </p>
               <a
                 href="#contact"
                 className="inline-block px-6 py-2 bg-linear-to-r from-[#D31027] to-[#EA384D] rounded-full text-sm font-semibold text-white hover:shadow-sm hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
               >
-                Get in Touch
+                {t('footer.getInTouch')}
               </a>
             </div>
           </div>
@@ -92,10 +98,10 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} LUNIO Studios. All rights reserved.
+              © {currentYear} LUNIO Studios. {t('footer.rightsReserved')}
             </p>
             <p className="text-gray-400 text-sm flex items-center gap-2">
-              Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> by LUNIO Studios
+              {t('footer.hecho')} <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> {t('footer.por')} LUNIO Studios
             </p>
           </div>
         </div>

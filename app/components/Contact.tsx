@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Mail, MessageSquare, User, Send, CheckCircle2, Clock } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   // Book-open animation state + ref for intersection observer
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -24,7 +26,6 @@ const Contact = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsOpen(true);
-            // if you want it to close when scrolled out, remove the next line
             obs.disconnect();
           }
         });
@@ -59,19 +60,12 @@ const Contact = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Contact Us
+            {t('contact.title')}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have questions or want to collaborate? Reach out and let's create something amazing together!
+            {t('contact.description')}
           </p>
         </div>
-
-        {/*
-          Book container:
-          - perspective to allow 3D rotateY
-          - we use a ref to observe when it enters viewport
-          - left/right panels are animated from closed (rotateY +/-80deg) to open (0deg)
-        */}
         <div
           ref={containerRef}
           className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
@@ -89,9 +83,11 @@ const Contact = () => {
             }}
           >
             <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">
+                {t('contact.subtitle')}
+              </h3>
               <p className="text-gray-400 mb-8">
-                Whether you have a question about services, pricing, need a demo, or anything else, our team is ready to answer all your questions.
+                {t('contact.subdescription')}
               </p>
 
               <div className="space-y-4">
@@ -100,14 +96,20 @@ const Contact = () => {
                     <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Response Time</p>
-                    <p className="text-white font-medium">Within 24 hours</p>
+                    <p className="text-sm text-gray-400">
+                      {t('contact.responseTime')}
+                    </p>
+                    <p className="text-white font-medium">
+                      {t('contact.responseTimeValue')}
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-gray-400 text-sm mb-4">Or find us on social media</p>
+                <p className="text-gray-400 text-sm mb-4">
+                  {t('contact.followUs')}
+                </p>
                 <div className="flex gap-3">
                   {['LinkedIn', 'Instagram', 'Facebook'].map((platform) => (
                     <button
@@ -145,7 +147,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name
+                    {t('contact.name')}
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -164,7 +166,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Email
+                    {t('contact.email')}
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -183,7 +185,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Message
+                    {t('contact.message')}
                   </label>
                   <div className="relative">
                     <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
@@ -205,7 +207,7 @@ const Contact = () => {
                   className="w-full py-3 bg-stone-700 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
-                  Send Message
+                  {t('contact.send')}
                 </button>
               </form>
             )}

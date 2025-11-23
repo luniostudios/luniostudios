@@ -3,17 +3,19 @@
 import { useState, useEffect } from 'react';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 import { supabase, Project } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const {t} = useLanguage();
 
   // renamed state to `projects` for clarity
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   const categories = [
-    { id: 'all', label: 'All Projects' },
+    { id: 'all', label: `${t('projects.allCategories')}` },
     { id: 'web', label: 'Web Apps' },
     { id: 'mobile', label: 'Mobile' },
     { id: 'AI', label: 'AI' },
@@ -55,10 +57,10 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Featured Projects
+            {t('projects.title')}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A selection of my recent work showcasing various technologies and creative solutions
+            {t('projects.description')}
           </p>
         </div>
 
@@ -80,9 +82,13 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading ? (
-            <p className="text-center text-gray-400 col-span-full">Loading projects...</p>
+            <p className="text-center text-gray-400 col-span-full">
+              {t('loading')}...
+            </p>
           ) : filteredProjects.length === 0 ? (
-            <p className="text-center text-gray-400 col-span-full">No projects found.</p>
+            <p className="text-center text-gray-400 col-span-full">
+              {t('noProjectsFound')}
+            </p>
           ) : (
             filteredProjects.map((proje, index) => (
               <article

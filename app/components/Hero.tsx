@@ -57,14 +57,15 @@ const Hero = () => {
               href="#contact"
               className="group px-8 py-3 bg-linear-to-r from-[#D31027] to-[#EA384D] rounded-full font-semibold hover:shadow-sm hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
             >
-              Get In Touch
+              {t('hero.cta')}
             </a>
             <a
-              href="#"
+              href="/cv/Miguel.pdf"
+              target="_blank"
               className="group px-8 py-3 border border-slate-500/50 rounded-full font-semibold hover:bg-slate-500/10 transition-all duration-300 flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
-              Download CV
+              {t('hero.download')}
             </a>
           </div>
         </div>
@@ -72,10 +73,10 @@ const Hero = () => {
 
       <div className="container max-w-6xl mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          { label: 'Years Experience', value: '3+' },
-          { label: 'Projects Completed', value: '20+' },
-          { label: 'Happy Clients', value: '3+' },
-          { label: 'Code Commits', value: '1k+' },
+          { label: `${t('hero.card')}`, value: '3+' },
+          { label: `${t('hero.card2')}`, value: '20+' },
+          { label: `${t('hero.card3')}`, value: '3+' },
+          { label: `${t('hero.card4')}`, value: '1k+' },
         ].map((stat, idx) => (
           <div
             key={idx}
