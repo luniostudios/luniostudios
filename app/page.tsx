@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Experience from './components/Team';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => {
@@ -20,14 +21,16 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <Hero />
-      <Skills />
-      <Experience />
-      <Contact />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
+        <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+        <Hero />
+        <Skills />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

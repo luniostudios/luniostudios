@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Code2, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Code2, Instagram, Facebook, Languages } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeaderProps {
   activeSection: string;
@@ -13,7 +14,9 @@ interface HeaderProps {
 const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
   const pathname = usePathname();
+  const {t} = useLanguage();
 
   // Keep a client-only copy of the pathname to avoid rendering route-dependent UI during SSR
   const [currentPath, setCurrentPath] = useState<string | null>(null);
@@ -32,10 +35,10 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   }, []);
 
   const navItems = [
-    { id: 'projects', label: 'Our Portfolio', href: '/projects' },
-    { id: 'skills', label: 'Tools & Skills', href: '/#skills' },
-    { id: 'team', label: 'The Team', href: '/#team' },
-    { id: 'contact', label: 'Contact Us', href: '/#contact' },
+    { id: 'projects', label: `${t('header.portfolio')}`, href: '/projects' },
+    { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
+    { id: 'team', label: `${t('header.team')}`, href: '/#team' },
+    { id: 'contact', label: `${t('header.contact')}`, href: '/#contact' },
   ];
 
   const scrollToSection = (sectionId: string, sectionHrf: string) => {
@@ -57,7 +60,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <button onClick={() => {window.location.href = '/'}}>
+          <button onClick={() => { window.location.href = '/' }}>
             <div className="flex items-center gap-1 cursor-pointer">
               <div className="p-2 rounded-lg">
                 <img src="/images/logos.png" width={"30px"} alt="" />
@@ -121,9 +124,15 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                 </button>
               );
             })}
+            <div className="hidden md:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
+              <Languages className="w-4 h-4 text-white" />
+              <select value={language}
+                onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
+                <option value="en" className="bg-stone-500 text-white">EN</option>
+                <option value="es" className="bg-stone-500 text-white">ES</option>
+              </select>
+            </div>
           </div>
-
-
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
@@ -136,19 +145,19 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <div className="relative w-full h-full mt-4 py-4 border-t border-white/10">
             {navItems.map((item) => {
               const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
-               return (
-                 <button
-                   key={item.id}
-                   onClick={() => scrollToSection(item.id, item.href)}
-                   className={`flex flex-col text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
-                     }`}
-                 >
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id, item.href)}
+                  className={`flex flex-col text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
+                    }`}
+                >
                   {item.label}
-                 </button>
-               );
-             })}
-           </div>
-         )}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </nav>
     </header>
   );
