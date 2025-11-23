@@ -15,6 +15,13 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Keep a client-only copy of the pathname to avoid rendering route-dependent UI during SSR
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
+
+  useEffect(() => {
+    setCurrentPath(pathname ?? null);
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -50,16 +57,16 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href={"/"}>
-            <div className="flex items-center gap-2 cursor-pointer">
+          <button onClick={() => {window.location.href = '/'}}>
+            <div className="flex items-center gap-1 cursor-pointer">
               <div className="p-2 rounded-lg">
                 <img src="/images/logos.png" width={"30px"} alt="" />
               </div>
-              <span className="text-3xl font-bold text-white">
+              <span className="font-gluten text-4xl font-bold text-white max-md:text-2xl">
                 LUNIO Studios
               </span>
             </div>
-          </Link>
+          </button>
 
           <div className="flex items-center justify-center gap-6 max-md:hidden">
             <a
@@ -96,9 +103,10 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             </a>
           </div>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8" suppressHydrationWarning>
             {navItems.map((item) => {
-              const isActive = activeSection === item.id || (pathname === '/#skills' && item.id === 'skills');
+              // compute active using client-only currentPath to prevent SSR/CSR mismatch
+              const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
               return (
                 <button
                   key={item.id}
@@ -125,24 +133,22 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-white/10">
+          <div className="relative w-full h-full mt-4 py-4 border-t border-white/10">
             {navItems.map((item) => {
-              const isActive = activeSection === item.id ;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id, item.href)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${isActive
-                      ? 'bg-linear-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400'
-                      : 'text-gray-300 hover:bg-white/5'
-                    }`}
-                >
-                 {item.label}
-                </button>
-              );
-            })}
-          </div>
-        )}
+              const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
+               return (
+                 <button
+                   key={item.id}
+                   onClick={() => scrollToSection(item.id, item.href)}
+                   className={`flex flex-col text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
+                     }`}
+                 >
+                  {item.label}
+                 </button>
+               );
+             })}
+           </div>
+         )}
       </nav>
     </header>
   );

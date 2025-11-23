@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Mail, MessageSquare, User, Send, CheckCircle2, Clock } from 'lucide-react';
 
 const Contact = () => {
@@ -10,6 +10,31 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Book-open animation state + ref for intersection observer
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsOpen(true);
+            // if you want it to close when scrolled out, remove the next line
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,9 +66,29 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          <div className="space-y-6 h-full">
-            <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col">
+        {/*
+          Book container:
+          - perspective to allow 3D rotateY
+          - we use a ref to observe when it enters viewport
+          - left/right panels are animated from closed (rotateY +/-80deg) to open (0deg)
+        */}
+        <div
+          ref={containerRef}
+          className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
+          style={{ perspective: 1400 }}
+        >
+          <div
+            className="space-y-6 h-full"
+            style={{
+              transformStyle: 'preserve-3d',
+              // left page rotates from closed to open
+              transform: isOpen ? 'rotateY(0deg)' : 'rotateY(90deg)',
+              transformOrigin: 'right center',
+              transition: 'transform 900ms cubic-bezier(.2,.9,.2,1)',
+              willChange: 'transform',
+            }}
+          >
+            <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col shadow-2xl">
               <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
               <p className="text-gray-400 mb-8">
                 Whether you have a question about services, pricing, need a demo, or anything else, our team is ready to answer all your questions.
@@ -64,7 +109,7 @@ const Contact = () => {
               <div className="mt-8 pt-8 border-t border-white/10">
                 <p className="text-gray-400 text-sm mb-4">Or find us on social media</p>
                 <div className="flex gap-3">
-                  {['LinkedIn', 'Instagram', 'Discord'].map((platform) => (
+                  {['LinkedIn', 'Instagram', 'Facebook'].map((platform) => (
                     <button
                       key={platform}
                       className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:bg-green-500/10 hover:text-green-400 border border-white/10 hover:border-green-500/50 transition-all duration-300"
@@ -77,7 +122,17 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col">
+          <div
+            className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col shadow-2xl"
+            style={{
+              transformStyle: 'preserve-3d',
+              // right page rotates from closed to open
+              transform: isOpen ? 'rotateY(0deg)' : 'rotateY(-90deg)',
+              transformOrigin: 'left center',
+              transition: 'transform 900ms cubic-bezier(.2,.9,.2,1)',
+              willChange: 'transform',
+            }}
+          >
             {isSubmitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center">
                 <div className="w-20 h-20 bg-linear-to-br from-stone-500/20 to-stone-500/20 rounded-full flex items-center justify-center mb-6">

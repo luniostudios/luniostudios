@@ -26,7 +26,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 max-md:px-2 max-md:pb-10">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -46,7 +46,7 @@ const Hero = () => {
             Make your Life Easier with our Studio
           </h1>
 
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
             Crafting exceptional digital experiences with cutting-edge technologies.
             Passionate about clean code, innovative solutions, and pushing the boundaries of what's possible.
           </p>
@@ -88,7 +88,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 max-md:bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ArrowDown className="w-8 h-8 text-[#b6b6b6]" />
       </div>
     </section>

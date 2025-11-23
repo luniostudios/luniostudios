@@ -9,7 +9,15 @@ import Footer from './components/Footer';
 import Experience from './components/Team';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash) {
+        return hash.substring(1);
+      }
+    }
+    return 'home';
+  });
 
   return (
     <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">

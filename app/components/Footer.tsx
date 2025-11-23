@@ -29,7 +29,7 @@ const Footer = () => {
                   <div className="p-2 rounded-lg">
                     <img src="/images/logos.png" width={"30px"} alt="" />
                   </div>
-                  <span className="text-3xl font-bold text-white">
+                  <span className="font-gluten text-4xl font-bold text-white">
                     LUNIO Studios
                   </span>
                 </div>
@@ -83,7 +83,7 @@ const Footer = () => {
                 href="#contact"
                 className="inline-block px-6 py-2 bg-linear-to-r from-[#D31027] to-[#EA384D] rounded-full text-sm font-semibold text-white hover:shadow-sm hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
               >
-                Say Hello
+                Get in Touch
               </a>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent" />
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-red-300 to-transparent" />
     </footer>
   );
 };
