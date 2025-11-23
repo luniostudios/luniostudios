@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, Download, ArrowDown } from 'lucide-react';
+import { easeIn, motion } from "motion/react"
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -41,10 +42,9 @@ const Hero = () => {
 
       <div className="container mx-auto mt-16 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-
-          <h1 className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
+          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100}} transition={{ duration: 0.4, ease: "easeInOut" }}  className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
             Make your Life Easier with our Studio
-          </h1>
+          </motion.h1>
 
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
             Crafting exceptional digital experiences with cutting-edge technologies.

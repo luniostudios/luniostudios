@@ -1,9 +1,13 @@
 import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { useState } from 'react';
 
 const Team = () => {
+  const [hoverName, setHoverName] = useState<string | null>(null);
+
   const experiences = [
     {
       type: 'education',
+      author: 'Miguel Duran',
       title: 'Master of Computer Science',
       company: 'Polytechnic University of Puerto Rico',
       period: '2023 - 2025',
@@ -15,6 +19,7 @@ const Team = () => {
     },
     {
       type: 'education',
+      author: 'Miguel Duran',
       title: 'Bachelor of Computer Science',
       company: 'University of Puerto Rico, Bayamon Campus',
       period: '2017 - 2023',
@@ -46,7 +51,14 @@ const Team = () => {
         </div>
         <div className='flex flex-row h-full gap-12 max-md:flex-col'>
           <div className='flex-1 align-middle'>
-            <img className='rounded-full' width={"100%"} src="https://media.licdn.com/dms/image/v2/D4E03AQE67SHRcPgEzw/profile-displayphoto-crop_800_800/B4EZoOsXxDHgAI-/0/1761183104542?e=1765411200&v=beta&t=He6V_seh0aYRjbdv_Z0dWuloVBlNPBNbSPFit7TBjs0" alt="" />
+            <div
+              className='relative w-full h-full'
+              onMouseEnter={() => setHoverName(experiences[0].author)}
+              onMouseLeave={() => setHoverName(null)}
+            >
+              <img className='inset-0 rounded-full w-full z-10' width={"100%"} height={"100%"} src="/team/miguel2.png" alt="teamImg" />
+              {/* overlay shown when hovering image or any experience box */}
+            </div>
           </div>
           <div className='h-full flex-2 justify-between'>
             <div className="max-w-4xl mx-auto">
@@ -54,7 +66,12 @@ const Team = () => {
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-r from-[#D31027] to-[#EA384D]" />
 
                 {experiences.map((exp, idx) => (
-                  <div key={idx} className="relative pl-20 pb-12 group">
+                  <div
+                    key={idx}
+                    className="relative pl-20 pb-12 group"
+                    onMouseEnter={() => setHoverName(exp.author)}
+                    onMouseLeave={() => setHoverName(null)}
+                  >
                     <div className="absolute left-4 top-0 w-8 h-8 rounded-full bg-linear-to-r from-[#D31027] to-[#EA384D] flex items-center justify-center border-4 border-slate-950 group-hover:scale-125 transition-transform duration-300">
                       {exp.type === 'work' ? (
                         <Briefcase className="w-4 h-4 text-white" />
