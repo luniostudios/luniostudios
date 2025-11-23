@@ -6,10 +6,10 @@ import Projects from '../components/Projects';
 import Footer from '../components/Footer';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('projects');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
+    <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
       <Projects />
       <Footer />

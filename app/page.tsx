@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Experience from './components/Team';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -15,6 +16,7 @@ function App() {
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
       <Hero />
       <Skills />
+      <Experience />
       <Contact />
       <Footer />
     </div>

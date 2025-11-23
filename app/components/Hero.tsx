@@ -71,10 +71,10 @@ const Hero = () => {
 
       <div className="container max-w-6xl mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          { label: 'Years Experience', value: '5+' },
-          { label: 'Projects Completed', value: '50+' },
-          { label: 'Happy Clients', value: '30+' },
-          { label: 'Code Commits', value: '10K+' },
+          { label: 'Years Experience', value: '3+' },
+          { label: 'Projects Completed', value: '20+' },
+          { label: 'Happy Clients', value: '3+' },
+          { label: 'Code Commits', value: '1k+' },
         ].map((stat, idx) => (
           <div
             key={idx}

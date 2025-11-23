@@ -7,7 +7,11 @@ const Skills = () => {
   const skillCategories: { icon: string | IconComponent; title: string }[] = [
     {
       icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Freact.svg?alt=media&token=b7420ed5-06a4-43e2-839e-b34323845b66",
-      title: 'React/Next.js',
+      title: 'React',
+    },
+    {
+      icon: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000",
+      title: 'Next JS',
     },
     {
       icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fnode-js.svg?alt=media&token=1c4825d1-1e9c-4efc-aaf9-85bed64c5dad",
@@ -18,7 +22,7 @@ const Skills = () => {
       title: 'Python',
     },
     {
-      icon: Database,
+      icon: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000",
       title: 'MongoDB',
     },
     {
@@ -34,12 +38,20 @@ const Skills = () => {
       title: 'Figma',
     },
     {
-      icon: Database,
-      title: 'Databases',
+      icon: "https://img.icons8.com/?size=100&id=J6KcaRLsTgpZ&format=png&color=000000",
+      title: 'SQL',
     },
     {
-      icon: Database,
-      title: 'Databases',
+      icon: "https://img.icons8.com/?size=100&id=G6qlKcs9gihV&format=png&color=000000",
+      title: 'Cybersecurity',
+    },
+    {
+      icon: "https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000",
+      title: 'Tailwind CSS',
+    },
+    {
+      icon: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000",
+      title: 'JavaScript',
     },
   ];
 

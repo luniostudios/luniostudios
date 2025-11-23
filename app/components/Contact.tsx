@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Mail, MessageSquare, User, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, MessageSquare, User, Send, CheckCircle2, Clock } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,40 +29,30 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-500/5 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Get In Touch
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Contact Us
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind? Let's work together to create something amazing
+            Have questions or want to collaborate? Reach out and let's create something amazing together!
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-xl border border-white/10">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="space-y-6 h-full">
+            <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
               <p className="text-gray-400 mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                Whether you have a question about services, pricing, need a demo, or anything else, our team is ready to answer all your questions.
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-all duration-300">
-                  <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg">
-                    <Mail className="w-5 h-5 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email</p>
-                    <p className="text-white font-medium">hello@johndeveloper.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-all duration-300">
-                  <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg">
-                    <MessageSquare className="w-5 h-5 text-cyan-400" />
+                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-green-100/50 transition-all duration-300">
+                  <div className="p-3 bg-linear-to-r from-[#30933d] to-[#44ff8c] rounded-lg">
+                    <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Response Time</p>
@@ -72,12 +62,12 @@ const Contact = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-gray-400 text-sm mb-4">Or find me on social media</p>
+                <p className="text-gray-400 text-sm mb-4">Or find us on social media</p>
                 <div className="flex gap-3">
-                  {['GitHub', 'LinkedIn', 'Twitter', 'Discord'].map((platform) => (
+                  {['LinkedIn', 'Instagram', 'Discord'].map((platform) => (
                     <button
                       key={platform}
-                      className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400 border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
+                      className="px-4 py-2 bg-white/5 rounded-lg text-sm text-gray-300 hover:bg-green-500/10 hover:text-green-400 border border-white/10 hover:border-green-500/50 transition-all duration-300"
                     >
                       {platform}
                     </button>
@@ -87,11 +77,11 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-xl border border-white/10">
+          <div className="bg-linear-to-br from-stone-900 to-stone-800 p-8 rounded-xl border border-white/10 h-full flex flex-col">
             {isSubmitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full flex items-center justify-center mb-6">
-                  <CheckCircle2 className="w-10 h-10 text-cyan-400" />
+                <div className="w-20 h-20 bg-linear-to-br from-stone-500/20 to-stone-500/20 rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle2 className="w-10 h-10 text-green-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
                 <p className="text-gray-400">I'll get back to you as soon as possible.</p>
@@ -100,7 +90,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name
+                    Full Name
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -111,7 +101,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-100/50 focus:ring-2 focus:ring-green-100/20 transition-all"
                       placeholder="John Doe"
                     />
                   </div>
@@ -130,7 +120,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-100/50 focus:ring-2 focus:ring-green-100/20 transition-all"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -149,7 +139,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none"
+                      className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-100/50 focus:ring-2 focus:ring-green-100/20 transition-all resize-none"
                       placeholder="Tell me about your project..."
                     />
                   </div>
@@ -157,7 +147,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-stone-700 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
                   Send Message
