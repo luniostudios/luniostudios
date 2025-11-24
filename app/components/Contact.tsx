@@ -3,13 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Mail, MessageSquare, User, Send, CheckCircle2, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import toast from 'react-hot-toast';
+
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { t } = useLanguage();
 
@@ -37,20 +36,36 @@ const Contact = () => {
     return () => obs.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    //check that email contains a real email address
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus('Invalid email address.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Successfully sent your message!")
+        setIsSubmitted(true);
+      } else {
+        toast.error("¡Failed to send message!")
+      }
+    } catch (error) {
+      setStatus('An error occurred.');
+    }
   };
 
   return (

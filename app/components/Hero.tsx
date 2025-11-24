@@ -84,11 +84,11 @@ const Hero = () => {
 
       <div ref={containerRef} className="container mx-auto mt-16 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
+          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
             {t('hero.title')}
           </motion.h1>
 
-          <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
+          <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
             {t('hero.description')}
           </motion.h2>
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 import { supabase, Project } from '../lib/supabase';
 import { useLanguage } from '../contexts/LanguageContext';
+import { motion } from 'motion/react';
 
 
 const Projects = () => {
@@ -56,12 +57,12 @@ const Projects = () => {
     <section id="projects" className="py-20 relative pt-[150px] bg-stone-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('projects.title')}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          </h1>
+          <h2 className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('projects.description')}
-          </p>
+          </h2>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
@@ -91,10 +92,10 @@ const Projects = () => {
             </p>
           ) : (
             filteredProjects.map((proje, index) => (
-              <article
+              <motion.article
                 key={proje.id}
                 className="group relative bg-linear-to-b from-stone-900/60 to-stone-800/40 rounded-2xl border border-white/6 overflow-hidden transform transition-all duration-500 hover:scale-[1.02] hover:shadow-md hover:shadow-green-500/10"
-                style={{ animationDelay: `${index * 100}ms` }}
+                initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut", delay: index * 0.1 }}
               >
                 <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-black/40 via-transparent to-transparent opacity-30" />
 
@@ -158,7 +159,7 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))
           )}
         </div>

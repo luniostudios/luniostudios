@@ -27,8 +27,8 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Link href={"/"}>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <Sun className="w-8 h-8 text-white" />
+                <div className="flex items-center gap-4 cursor-pointer">
+                  <img src="/images/logo.png" className='w-8 max-md:w-5' alt="logo" title='logo' />
                   <h1 className="font-gluten text-4xl font-bold text-white">
                     LUNIO Studios
                   </h1>

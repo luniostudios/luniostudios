@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Experience from './components/Team';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => {
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <LanguageProvider>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
         <Header activeSection={activeSection} setActiveSection={setActiveSection} />
         <Hero />
