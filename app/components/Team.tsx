@@ -1,12 +1,15 @@
 "use client"
 
 import { Briefcase, GraduationCap, Award } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { motion } from 'motion/react';
 
 const Team = () => {
   const [hoverName, setHoverName] = useState<string | null>(null);
   const { t } = useLanguage();
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const experiences = [
     {
@@ -68,11 +71,10 @@ const Team = () => {
             <div className="max-w-4xl mx-auto">
               <div className="relative">
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-r from-[#D31027] to-[#EA384D]" />
-
                 {experiences.map((exp, idx) => (
                   <div
                     key={idx}
-                    className="relative pl-20 pb-12 group"
+                    className="relative pl-20 mb-12 group"
                     onMouseEnter={() => setHoverName(exp.author)}
                     onMouseLeave={() => setHoverName(null)}
                   >
@@ -84,7 +86,8 @@ const Team = () => {
                       )}
                     </div>
 
-                    <div className="bg-linear-to-br from-stone-900 to-stone-800 p-6 rounded-xl border border-white/10 hover:border-[#EA384D] transition-all duration-500 hover:shadow-sm hover:shadow-red-100/20">
+                    <motion.div initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }} transition={{duration: 1, ease: "easeInOut"}} viewport={{ once: true }} className="bg-linear-to-br from-stone-900 to-stone-800 p-6 rounded-xl border border-white/10 hover:border-[#EA384D] transition-all duration-500 hover:shadow-sm hover:shadow-red-100/20">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                         <div>
                           <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
@@ -105,7 +108,7 @@ const Team = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </div>

@@ -152,8 +152,8 @@ const Hero = () => {
       })}
 
       {lastFound && (
-        <div className="absolute top-6 bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-lg max-md:text-md z-100 shadow-lg animate-fade-in">
-          🎉 10% Discount Code: <span className="font-mono ml-2">{lastFound}</span> 🎉
+        <div className="absolute items-center top-6 bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md z-100 shadow-lg animate-fade-in">
+          🎉 10% Discount Code: <span className="font-mono">{lastFound}</span> 🎉
         </div>
       )}
       {/* Bottom-right unlocked codes list */}

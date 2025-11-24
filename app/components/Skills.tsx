@@ -67,19 +67,23 @@ const Skills = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }}  className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}  className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('skills.title')}
           </motion.h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }} className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('skills.description')}
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, idx) => {
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0}}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: idx * 0.1 }}
+                viewport={{ once: true }}
                 className="bg-linear-to-br from-stone-900 to-stone-800 p-6 rounded-xl border border-white/10 hover:border-green-100/50 transition-all duration-500 hover:shadow-sm hover:shadow-green-500/20"
               >
                 <div className="flex items-center gap-3">
@@ -95,7 +99,7 @@ const Skills = () => {
                   </div>
                   <h3 className="text-xl font-bold text-white">{category.title}</h3>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
