@@ -17,7 +17,7 @@ interface LanguageContextType {
 const translations: Translations = {
     // Header Translations
     'header.portfolio': {
-        en: 'Our Portfolio',
+        en: 'Portfolio',
         es: 'Portafolio',
     },
     'header.skills': {
@@ -35,7 +35,7 @@ const translations: Translations = {
 
     'hero.title': {
         en: 'Make your Life Easier with our Studio',
-        es: 'Haz tu Vida Más Fácil con nuestro Estudio',
+        es: 'Haz tu Vida Más Fácil con nuestra Agencia',
     },
     'hero.description': {
         en: 'Crafting exceptional digital experiences with cutting-edge technologies. Passionate about clean code, innovative solutions, and pushing the boundaries of what\'s possible.',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code2, Database, Cloud, Smartphone, Terminal, Palette } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { easeIn, easeInOut, motion } from 'motion/react';
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
@@ -66,9 +67,9 @@ const Skills = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }}  className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('skills.title')}
-          </h2>
+          </motion.h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('skills.description')}
           </p>
