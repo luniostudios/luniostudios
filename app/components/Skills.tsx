@@ -67,12 +67,12 @@ const Skills = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}  className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <motion.h1 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}  className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('skills.title')}
-          </motion.h2>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }} className="text-gray-400 text-lg max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }} className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('skills.description')}
-          </motion.p>
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -89,7 +89,7 @@ const Skills = () => {
                 <div className="flex items-center gap-3">
                   <div className="p-3 bg-linear-to-br from-stone-500/20 to-stone-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                     {typeof category.icon === 'string' ? (
-                      <img src={category.icon} alt={category.title} className="w-7 h-7" />
+                      <img src={category.icon} alt={category.title} title={category.title} className="w-7 h-7" />
                     ) : (
                       (() => {
                         const Icon = category.icon as IconComponent;

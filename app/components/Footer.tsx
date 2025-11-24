@@ -1,4 +1,4 @@
-import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook } from 'lucide-react';
+import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook, Sun, ArrowBigRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -7,9 +7,9 @@ const Footer = () => {
   const {t} = useLanguage();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Facebook, href: 'https://linkedin.com', label: 'Facebook' },
+    { icon: Github, href: 'https://github.com/luniostudios', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/luniostudios/', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61575845991065', label: 'Facebook' },
     { icon: Instagram, href: 'https://twitter.com', label: 'Instagram' },
   ];
 
@@ -28,18 +28,16 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <Link href={"/"}>
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <div className="p-2 rounded-lg">
-                    <img src="/images/logos.png" width={"30px"} alt="" />
-                  </div>
-                  <span className="font-gluten text-4xl font-bold text-white">
+                  <Sun className="w-8 h-8 text-white" />
+                  <h1 className="font-gluten text-4xl font-bold text-white">
                     LUNIO Studios
-                  </span>
+                  </h1>
                 </div>
               </Link>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <h2 className="text-gray-400 text-sm leading-relaxed mb-4">
               {t('hero.description')}
-            </p>
+            </h2>
             <div className="flex items-center gap-4">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
@@ -52,7 +50,7 @@ const Footer = () => {
                     aria-label={link.label}
                     className="p-2 rounded-lg bg-white/5 hover:bg-linear-to-r hover:from-[#D31027] hover:to-[#EA384D] border border-white/10 hover:border-red-500/50 transition-all duration-300 hover:scale-110"
                   >
-                    <Icon className="w-5 h-5 text-gray-400 hover:text-cyan-400 transition-colors" />
+                    <Icon className="w-5 h-5 text-gray-400 hover:text-gray-400 transition-colors" />
                   </a>
                 );
               })}
@@ -60,9 +58,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">
+            <h3 className="text-white font-semibold mb-4">
               {t('footer.quickLinks')}
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -70,6 +68,7 @@ const Footer = () => {
                     href={link.href}
                     className="text-gray-400 hover:text-gray-100 transition-colors text-sm inline-flex items-center gap-2 group"
                   >
+                    <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-green-400 transition-colors" />
                     {link.label}
                   </a>
                 </li>
@@ -97,12 +96,12 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
+            <h5 className="text-gray-400 text-sm text-center md:text-left">
               © {currentYear} LUNIO Studios. {t('footer.rightsReserved')}
-            </p>
-            <p className="text-gray-400 text-sm flex items-center gap-2">
+            </h5>
+            <h6 className="text-gray-400 text-sm flex items-center gap-2">
               {t('footer.hecho')} <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> {t('footer.por')} LUNIO Studios
-            </p>
+            </h6>
           </div>
         </div>
       </div>

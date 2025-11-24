@@ -49,12 +49,12 @@ const Team = () => {
     <section id="team" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('team.title')}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          </h1>
+          <h2 className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('team.description')}
-          </p>
+          </h2>
         </div>
         <div className='flex flex-row max-lg:flex-col h-full gap-12 max-md:flex-col'>
           <div className='flex-1 align-middle'>
@@ -63,7 +63,7 @@ const Team = () => {
               onMouseEnter={() => setHoverName(experiences[0].author)}
               onMouseLeave={() => setHoverName(null)}
             >
-              <img className='inset-0 rounded-full w-full max-lg:w-[50%] max-md:w-full z-10' width={"100%"} height={"100%"} src="/team/miguel2.png" alt="teamImg" />
+              <img className='inset-0 rounded-full w-full max-lg:w-[50%] max-md:w-full z-10' width={"100%"} height={"100%"} src="/team/miguel2.png" alt="teamImg" title='teamImg'/>
               {/* overlay shown when hovering image or any experience box */}
             </div>
           </div>
@@ -91,20 +91,20 @@ const Team = () => {
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                         <div>
                           <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                          <p className="text-green-200 font-medium">{exp.company}</p>
+                          <h4 className="text-green-200 font-medium">{exp.company}</h4>
                         </div>
                         <span className="px-4 py-1 bg-red-500/10 text-red-200 text-sm rounded-full border border-red-500/20">
                           {exp.period}
                         </span>
                       </div>
 
-                      <p className="text-gray-400 mb-4">{exp.description}</p>
+                      <h5 className="text-gray-400 mb-4">{exp.description}</h5>
 
                       <div className="space-y-2">
                         {exp.achievements.map((achievement, achIdx) => (
                           <div key={achIdx} className="flex items-start gap-2">
                             <div className="w-1.5 h-1.5 rounded-full bg-red-200 mt-2 shrink-0" />
-                            <p className="text-sm text-gray-300">{achievement}</p>
+                            <h6 className="text-sm text-gray-300">{achievement}</h6>
                           </div>
                         ))}
                       </div>

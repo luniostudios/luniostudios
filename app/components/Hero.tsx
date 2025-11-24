@@ -10,6 +10,13 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { t } = useLanguage();
 
+  const stats = [
+    { label: `${t('hero.card')}`, value: '3+' },
+    { label: `${t('hero.card2')}`, value: '20+' },
+    { label: `${t('hero.card3')}`, value: '3+' },
+    { label: `${t('hero.card4')}`, value: '1k+' },
+  ]
+
   // hidden points expressed as percentages of the container (x: 0..1, y: 0..1)
   const hiddenPoints = [
     { id: 'p1', code: 'LUNIO25', x: 0.12, y: 0.22 },
@@ -81,9 +88,9 @@ const Hero = () => {
             {t('hero.title')}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
+          <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed max-md:text-sm">
             {t('hero.description')}
-          </motion.p>
+          </motion.h2>
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
             <a
@@ -105,12 +112,7 @@ const Hero = () => {
       </div>
 
       <div className="container max-w-6xl mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-md:gap-4 max-lg:px-3">
-        {[
-          { label: `${t('hero.card')}`, value: '3+' },
-          { label: `${t('hero.card2')}`, value: '20+' },
-          { label: `${t('hero.card3')}`, value: '3+' },
-          { label: `${t('hero.card4')}`, value: '1k+' },
-        ].map((stat, idx) => (
+        {stats.map((stat, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 0.6, ease: "easeInOut", delay: idx * 0.2 }}

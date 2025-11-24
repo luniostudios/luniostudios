@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Code2, Instagram, Facebook, Languages, Coffee, Moon, Sun, Plane } from 'lucide-react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -63,15 +62,15 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <button onClick={() => { window.location.href = '/' }}>
             <div className="flex items-center gap-2 cursor-pointer">
               <Sun className="w-8 h-8 text-white" />
-              <span className="font-gluten text-4xl font-bold text-white max-md:text-xl">
+              <h1 className="font-gluten text-4xl font-bold text-white max-md:text-xl">
                 LUNIO Studios
-              </span>
+              </h1>
             </div>
           </button>
 
           <div className="flex items-center justify-center gap-6 max-lg:hidden">
             <a
-              href="https://github.com/MiguelJDZ"
+              href="https://github.com/luniostudios"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"

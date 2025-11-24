@@ -59,12 +59,12 @@ const Contact = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             {t('contact.title')}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          </h1>
+          <h2 className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t('contact.description')}
-          </p>
+          </h2>
         </div>
         <div
           ref={containerRef}
@@ -86,9 +86,9 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-6">
                 {t('contact.subtitle')}
               </h3>
-              <p className="text-gray-400 mb-8">
+              <h4 className="text-gray-400 mb-8">
                 {t('contact.subdescription')}
-              </p>
+              </h4>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-green-100/50 transition-all duration-300">
@@ -107,9 +107,9 @@ const Contact = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-gray-400 text-sm mb-4">
+                <h5 className="text-gray-400 text-sm mb-4">
                   {t('contact.followUs')}
-                </p>
+                </h5>
                 <div className="flex gap-3">
                   {['LinkedIn', 'Instagram', 'Facebook'].map((platform) => (
                     <button
@@ -140,7 +140,7 @@ const Contact = () => {
                 <div className="w-20 h-20 bg-linear-to-br from-stone-500/20 to-stone-500/20 rounded-full flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-10 h-10 text-green-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                <h6 className="text-2xl font-bold text-white mb-2">Message Sent!</h6>
                 <p className="text-gray-400">I'll get back to you as soon as possible.</p>
               </div>
             ) : (
