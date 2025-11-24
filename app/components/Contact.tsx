@@ -57,6 +57,8 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
+      console.log('Response status:', response.status);
+
       if (response.ok) {
         toast.success("Successfully sent your message!")
         setIsSubmitted(true);
