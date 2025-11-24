@@ -130,24 +130,34 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               </select>
             </div>
           </div>
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className='flex flex-row gap-2'>
+            <div className="max-lg:flex lg:hidden items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r text-sm hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
+              <Languages className="w-3 h-3 text-white" />
+              <select value={language}
+                onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none '>
+                <option value="en" className="bg-stone-500 text-white">EN</option>
+                <option value="es" className="bg-stone-500 text-white">ES</option>
+              </select>
+            </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {isMobileMenuOpen && (
 
-          <div className="relative w-full h-full mt-4 py-4 border-t border-white/10">
+          <div className="relative w-full h-full mt-4 py-4 border-t-white/10 bg-stone-950/80 pl-6 flex flex-col gap-6" >
             {navItems.map((item) => {
               const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id, item.href)}
-                  className={`flex flex-col text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
+                  className={`flex flex-col pb-2 text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
                     }`}
                 >
                   {item.label}
