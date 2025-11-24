@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState, useEffect, useRef } from 'react';
 import { Mail, MessageSquare, User, Send, CheckCircle2, Clock } from 'lucide-react';
@@ -57,8 +57,6 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log('Response status:', response.status);
-
       if (response.ok) {
         toast.success("Successfully sent your message!")
         setIsSubmitted(true);
@@ -66,7 +64,7 @@ const Contact = () => {
         toast.error("¡Failed to send message!")
       }
     } catch (error) {
-      setStatus('An error occurred.');
+      toast.error('An error occurred.');
     }
   };
 
@@ -226,6 +224,7 @@ const Contact = () => {
                   <Send className="w-5 h-5" />
                   {t('contact.send')}
                 </button>
+                <p>{status}</p>
               </form>
             )}
           </div>

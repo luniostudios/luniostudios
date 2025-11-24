@@ -92,7 +92,7 @@ const Hero = () => {
             {t('hero.description')}
           </motion.h2>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex max-lg:text-2xl flex-wrap max-sm:flex-nowrap max-sm:text-sm items-center justify-center gap-4 mb-12">
             <a
               href="#contact"
               className="group px-8 py-3 bg-linear-to-r from-[#D31027] to-[#EA384D] rounded-full font-semibold hover:shadow-sm hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
@@ -107,7 +107,7 @@ const Hero = () => {
               <Download className="w-4 h-4" />
               {t('hero.download')}
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
 
