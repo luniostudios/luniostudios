@@ -54,80 +54,82 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-950/80 backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-transparent'
+      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-950/80 backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-transparent'
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <button onClick={() => { window.location.href = '/' }}>
-            <div className="flex items-center gap-2 cursor-pointer">
-              <img src="/images/logo.png" className='w-8 max-md:w-5' alt="logo" title='logo' />
-              <h1 className="font-gluten text-4xl font-medium text-white max-md:text-xl">
-                LUNIO Studios
-              </h1>
+        <div className='flex flex-col max-lg:flex-row w-full'>
+          <div className="flex items-center justify-between max-lg:flex-1 mx-20 max-lg:mx-0">
+            <button onClick={() => { window.location.href = '/' }}>
+              <div className="flex items-center gap-2 cursor-pointer">
+                <img src="/images/logo.png" className='w-8 max-md:w-5' alt="logo" title='logo' />
+                <h1 className="font-gluten text-4xl font-medium text-white max-md:text-xl">
+                  LUNIO Studios
+                </h1>
+              </div>
+            </button>
+
+            <div className="flex items-center justify-center gap-6 max-lg:hidden">
+              <a
+                href="https://github.com/luniostudios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/luniostudios/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61575845991065"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61575845991065"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
             </div>
-          </button>
 
-          <div className="flex items-center justify-center gap-6 max-lg:hidden">
-            <a
-              href="https://github.com/luniostudios"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/luniostudios/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61575845991065"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61575845991065"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-          </div>
+            <div className="hidden lg:flex items-center gap-8" suppressHydrationWarning>
+              {navItems.map((item) => {
+                // compute active using client-only currentPath to prevent SSR/CSR mismatch
+                const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id, item.href)}
+                    className={`relative text-sm font-medium transition-colors hover:text-gray-35`}
+                  >
+                    {item.label}
 
-          <div className="hidden lg:flex items-center gap-8" suppressHydrationWarning>
-            {navItems.map((item) => {
-              // compute active using client-only currentPath to prevent SSR/CSR mismatch
-              const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id, item.href)}
-                  className={`relative text-sm font-medium transition-colors hover:text-gray-35`}
-                >
-                  {item.label}
-
-                  {isActive && currentPath !== null && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-linear-to-r from-[#30933d] to-[#44ff8c] rounded-full" />
-                  )}
-                </button>
-              );
-            })}
-            <div className="hidden md:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
-              <Languages className="w-4 h-4 text-white" />
-              <select value={language}
-                onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
-                <option value="en" className="bg-stone-500 text-white">EN</option>
-                <option value="es" className="bg-stone-500 text-white">ES</option>
-              </select>
+                    {isActive && currentPath !== null && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-linear-to-r from-[#30933d] to-[#44ff8c] rounded-full" />
+                    )}
+                  </button>
+                );
+              })}
+              <div className="hidden md:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
+                <Languages className="w-4 h-4 text-white" />
+                <select value={language}
+                  onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
+                  <option value="en" className="bg-stone-500 text-white">EN</option>
+                  <option value="es" className="bg-stone-500 text-white">ES</option>
+                </select>
+              </div>
             </div>
           </div>
           <div className='flex flex-row gap-2'>
@@ -146,6 +148,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+
         </div>
 
         {isMobileMenuOpen && (
