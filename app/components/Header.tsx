@@ -95,7 +95,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=61575845991065"
+                href="https://www.instagram.com/lunio_studios/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"

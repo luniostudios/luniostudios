@@ -10,7 +10,7 @@ const Footer = () => {
     { icon: Github, href: 'https://github.com/luniostudios', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/luniostudios/', label: 'LinkedIn' },
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61575845991065', label: 'Facebook' },
-    { icon: Instagram, href: 'https://twitter.com', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/lunio_studios/', label: 'Instagram' },
   ];
 
   const quickLinks = [
