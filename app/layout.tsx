@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Fredoka, Fuzzy_Bubbles, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +39,9 @@ export default function RootLayout({
       >
         {children}
         <SpeedInsights />
+        <Analytics />
+        <GoogleTagManager gtmId="GTM-W8T8ZTKS" />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
       </body>
     </html>
   );
