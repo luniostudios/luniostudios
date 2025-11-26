@@ -59,11 +59,11 @@ const Team = () => {
         <div className='flex flex-row max-lg:flex-col h-full gap-12 max-md:flex-col'>
           <div className='flex-1 align-middle'>
             <div
-              className='relative w-full h-full'
+              className='relative w-full h-full max-xl:justify-items-center'
               onMouseEnter={() => setHoverName(experiences[0].author)}
               onMouseLeave={() => setHoverName(null)}
             >
-              <img className='inset-0 rounded-full w-full max-lg:w-[50%] max-md:w-full z-10' width={"100%"} height={"100%"} src="/team/miguel2.png" alt="teamImg" title='teamImg'/>
+              <img className='inset-0 rounded-full w-full max-lg:w-[50%] max-md:w-full z-10 items-baseline' width={"100%"} height={"100%"} src="/team/miguel2.png" alt="teamImg" title='teamImg'/>
               {/* overlay shown when hovering image or any experience box */}
             </div>
           </div>

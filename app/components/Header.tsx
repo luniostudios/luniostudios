@@ -58,8 +58,8 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
-        <div className='flex flex-col max-lg:flex-row w-full'>
-          <div className="flex items-center justify-between max-lg:flex-1 mx-20 max-lg:mx-0">
+        <div className='flex flex-col max-xl:flex-row w-full'>
+          <div className="flex items-center justify-between max-xl:flex-1 mx-20 max-xl:mx-2">
             <button onClick={() => { window.location.href = '/' }}>
               <div className="flex items-center gap-2 cursor-pointer">
                 <img src="/images/logo.png" className='w-8 max-md:w-5' alt="logo" title='logo' />
@@ -69,7 +69,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               </div>
             </button>
 
-            <div className="flex items-center justify-center gap-6 max-lg:hidden">
+            <div className="flex items-center justify-center gap-6 max-xl:hidden">
               <a
                 href="https://github.com/luniostudios"
                 target="_blank"
@@ -104,7 +104,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               </a>
             </div>
 
-            <div className="hidden lg:flex items-center gap-8" suppressHydrationWarning>
+            <div className="hidden xl:flex items-center gap-8" suppressHydrationWarning>
               {navItems.map((item) => {
                 // compute active using client-only currentPath to prevent SSR/CSR mismatch
                 const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
@@ -122,7 +122,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                   </button>
                 );
               })}
-              <div className="hidden md:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
+              <div className="hidden xl:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
                 <Languages className="w-4 h-4 text-white" />
                 <select value={language}
                   onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
@@ -133,7 +133,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             </div>
           </div>
           <div className='flex flex-row gap-2'>
-            <div className="max-lg:flex lg:hidden items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r text-sm hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
+            <div className="max-xl:flex xl:hidden items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r text-sm hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
               <Languages className="w-3 h-3 text-white" />
               <select value={language}
                 onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none '>
@@ -143,7 +143,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="xl:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
