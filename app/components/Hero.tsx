@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex flex-row gap-2 items-center bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md  shadow-lg">
-        🦃 10% Discount Code: <span className="font-mono">LUNIO25</span> 🦃
+        🦃 10% Discount Code: <span className="font-mono">TURKEY25</span> 🦃
         <Info className='w-3'></Info>
       </motion.div>
 
