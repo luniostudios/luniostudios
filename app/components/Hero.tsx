@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, Mail, Download, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowDown, Info } from 'lucide-react';
 import { easeIn, motion } from "motion/react"
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -16,47 +16,6 @@ const Hero = () => {
     { label: `${t('hero.card3')}`, value: '3+' },
     { label: `${t('hero.card4')}`, value: '1k+' },
   ]
-
-  // hidden points expressed as percentages of the container (x: 0..1, y: 0..1)
-  const hiddenPoints = [
-    { id: 'p1', code: 'LUNIO25', x: 0.12, y: 0.22 },
-  ];
-
-  const [unlocked, setUnlocked] = useState<string[]>([]);
-  const [lastFound, setLastFound] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-
-      const localX = e.clientX - rect.left;
-      const localY = e.clientY - rect.top;
-
-      const threshold = 50; // px radius for finding a hidden code
-
-      hiddenPoints.forEach((p) => {
-        if (unlocked.includes(p.id)) return;
-        const px = rect.width * p.x;
-        const py = rect.height * p.y;
-        const dist = Math.hypot(localX - px, localY - py);
-        if (dist <= threshold) {
-          setUnlocked((prev) => {
-            if (prev.includes(p.id)) return prev;
-            setLastFound(p.code);
-            setTimeout(() => setLastFound(null), 2500); // hide popup after a moment
-            return [...prev, p.id];
-          });
-        }
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unlocked]);
 
   const roles = ['Design', 'Develop', 'Testing', 'Debug', 'Deploy', 'Maintain'];
   const [currentRole, setCurrentRole] = useState(0);
@@ -81,8 +40,12 @@ const Hero = () => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex flex-row gap-2 items-center bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md  shadow-lg">
+        🦃 10% Discount Code: <span className="font-mono">LUNIO25</span> 🦃
+        <Info className='w-3'></Info>
+      </motion.div>
 
-      <div ref={containerRef} className="container mx-auto mt-16 px-6 relative z-10">
+      <div ref={containerRef} className="container mx-auto mt-8 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
             {t('hero.title')}
@@ -126,38 +89,6 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Visual markers for already found codes (small badges) */}
-      {containerRef.current && hiddenPoints.map((p) => {
-        const rect = containerRef.current!.getBoundingClientRect();
-        const left = rect.left + rect.width * p.x;
-        const top = rect.top + rect.height * p.y;
-        const isFound = unlocked.includes(p.id);
-        return (
-          <div
-            key={p.id}
-            style={{
-              position: 'fixed',
-              left: left - 10,
-              top: top - 10,
-              width: 20,
-              height: 20,
-              pointerEvents: 'none',
-              transform: 'translate(-50%, -50%)',
-              transition: 'opacity 200ms, transform 200ms',
-              opacity: isFound ? 1 : 0,
-            }}
-          >
-            <div className="w-3 h-3 rounded-full bg-stone-500 shadow-md" />
-
-          </div>
-        );
-      })}
-
-      {lastFound && (
-        <div className="absolute items-center top-6 bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md z-100 shadow-lg animate-fade-in">
-          🎉 10% Discount Code: <span className="font-mono">{lastFound}</span> 🎉
-        </div>
-      )}
       {/* Bottom-right unlocked codes list */}
 
       <div className="absolute bottom-8 max-md:bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
