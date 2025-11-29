@@ -41,9 +41,13 @@ export default function RootLayout({
         <meta property="og:image" content="/images/og.png" />
         <meta property="og:image:alt" content="LUNIO Studios" />
         <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="twitter:image" content="/images/og.png" />
         <meta property="twitter:image:alt" content="LUNIO Studios" />
         <meta property="twitter:image:type" content="image/png" />
+        <meta property="twitter:image:width" content="1200" />
+        <meta property="twitter:image:height" content="630" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${custom.variable} antialiased`}

@@ -40,12 +40,12 @@ const Hero = () => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex flex-row gap-2 items-center bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md  shadow-lg">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="hidden flex-row gap-2 items-center bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md  shadow-lg">
         🦃 10% Discount Code: <span className="font-mono">TURKEY25</span> 🦃
         <Info className='w-3'></Info>
       </motion.div>
 
-      <div ref={containerRef} className="container mx-auto mt-8 px-6 relative z-10">
+      <div ref={containerRef} className="container mx-auto mt-16 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
             {t('hero.title')}
