@@ -23,9 +23,12 @@ const custom = Fredoka({
 
 
 export const metadata: Metadata = {
-  title: "LUNIO Studios - Design & Development Agency",
+  title: "LUNIO Studios - Web Design & Development Agency",
   description: "LUNIO Studios is a cutting-edge design and development agency specializing in creating stunning websites, innovative applications, and immersive digital experiences. Our team of experts combines creativity and technology to bring your vision to life.",
 };
+
+
+
 
 export default function RootLayout({
   children,
@@ -34,6 +37,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:image" content="/images/og.png" />
+        <meta property="og:image:alt" content="LUNIO Studios" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="twitter:image" content="/images/og.png" />
+        <meta property="twitter:image:alt" content="LUNIO Studios" />
+        <meta property="twitter:image:type" content="image/png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${custom.variable} antialiased`}
       >
