@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka, Fuzzy_Bubbles, Geist, Geist_Mono } from "next/font/google";
+import { Fredoka, Fuzzy_Bubbles, Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -20,6 +20,11 @@ const custom = Fredoka({
   variable: "--font-gluten",
   subsets: ["latin"],
 });
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+})
 
 
 export const metadata: Metadata = {

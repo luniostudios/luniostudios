@@ -21,6 +21,15 @@ const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
@@ -45,7 +54,7 @@ const Hero = () => {
         <Info className='w-3'></Info>
       </motion.div>
 
-      <div ref={containerRef} className="container mx-auto mt-16 px-6 relative z-10">
+      <div ref={containerRef} className=" font-roboto container mx-auto mt-16 px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="text-8xl font-bold mb-4 text-white max-md:text-6xl">
             {t('hero.title')}

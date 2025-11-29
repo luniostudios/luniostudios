@@ -62,8 +62,8 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <div className="flex items-center justify-between max-xl:flex-1 mx-20 max-xl:mx-2">
             <button onClick={() => { window.location.href = '/' }}>
               <div className="flex items-center gap-2 cursor-pointer">
-                <img src="/images/logos.png" className='w-8 max-md:w-5' alt="logo" title='logo' />
-                <h1 className="font-gluten text-4xl font-medium text-white max-md:text-xl">
+                <img src="/images/logos.png" className='w-7 max-md:w-5' alt="logo" title='logo' />
+                <h1 className="font-roboto text-4xl font-bold text-white max-md:text-xl">
                   LUNIO Studios
                 </h1>
               </div>
