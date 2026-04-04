@@ -11,7 +11,7 @@ const Skills = () => {
 
   const skillCategories: { icon: string | IconComponent; title: string }[] = [
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Freact.svg?alt=media&token=b7420ed5-06a4-43e2-839e-b34323845b66",
+      icon: "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000",
       title: 'React',
     },
     {
@@ -19,27 +19,27 @@ const Skills = () => {
       title: 'Next JS',
     },
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fnode-js.svg?alt=media&token=1c4825d1-1e9c-4efc-aaf9-85bed64c5dad",
+      icon: "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000",
       title: 'Node.js',
     },
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fpython.svg?alt=media&token=f6e852e9-bb53-4653-974f-b719b2557cb1",
-      title: 'Python',
+      icon: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000",
+      title: 'JavaScript',
     },
     {
       icon: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000",
       title: 'MongoDB',
     },
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fhtml5.svg?alt=media&token=4f288874-f069-4190-ad3a-526c0aa73035",
+      icon: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
       title: 'HTML',
     },
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Fcss3.svg?alt=media&token=7bc27d3c-d140-4cea-b7a2-32b191908f38",
+      icon: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
       title: 'CSS',
     },
     {
-      icon: "https://firebasestorage.googleapis.com/v0/b/icon-finder-91d39.appspot.com/o/icons%2Fbrand%2Ffigma.svg?alt=media&token=cfaa8dc7-09cc-4b66-b929-8cae68e3ad42",
+      icon: "https://img.icons8.com/?size=100&id=zfHRZ6i1Wg0U&format=png&color=000000",
       title: 'Figma',
     },
     {
@@ -47,7 +47,7 @@ const Skills = () => {
       title: 'SQL',
     },
     {
-      icon: "https://img.icons8.com/?size=100&id=G6qlKcs9gihV&format=png&color=000000",
+      icon: "https://img.icons8.com/?size=100&id=4R1YVxksRVyW&format=png&color=000000",
       title: 'Cybersecurity',
     },
     {

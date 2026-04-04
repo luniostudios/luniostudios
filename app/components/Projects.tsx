@@ -104,7 +104,7 @@ const Projects = () => {
                     <img
                       src={proje.image_url || '/images/placeholder.png'}
                       alt={proje.title || 'project'}
-                      className="h-full w-fit object-fill transition-transform duration-600 group-hover:scale-105"
+                      className="h-full w-fit object-cover transition-transform duration-600 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
