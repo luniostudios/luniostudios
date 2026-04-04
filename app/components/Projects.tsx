@@ -102,10 +102,10 @@ const Projects = () => {
                 <div className="md:flex">
                   <div className="md:w-48 h-full md:h-auto shrink-0 overflow-hidden bg-stone-800">
                     <img
-                      src={proje.image_url || '/images/placeholder.png'}
+                      src={proje.image_url || '/images/og.png'}
                       alt={proje.title || 'project'}
                       className="h-full w-fit object-cover transition-transform duration-600 group-hover:scale-105"
-                      loading="lazy"
+                      loading='lazy'
                     />
                   </div>
 

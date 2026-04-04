@@ -217,6 +217,8 @@ const Contact = () => {
                   </div>
                 </div>
 
+                <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY}></div>
+
                 <button
                   type="submit"
                   className="w-full py-3 bg-stone-700 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"

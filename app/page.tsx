@@ -24,6 +24,7 @@ function App() {
   return (
     <LanguageProvider>
       <Toaster position="top-center" reverseOrder={false} />
+      <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY}></div>
       <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-stone-950 text-white">
         <Header activeSection={activeSection} setActiveSection={setActiveSection} />
         <Hero />

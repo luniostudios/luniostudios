@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fredoka, Fuzzy_Bubbles, Geist, Geist_Mono, Roboto } from "next/font/google";
+
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -53,6 +54,7 @@ export default function RootLayout({
         <meta property="twitter:image:type" content="image/png" />
         <meta property="twitter:image:width" content="1200" />
         <meta property="twitter:image:height" content="630" />
+        <link rel="preconnect" href="https://challenges.cloudflare.com" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${custom.variable} antialiased`}
