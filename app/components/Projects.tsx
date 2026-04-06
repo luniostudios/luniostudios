@@ -99,12 +99,12 @@ const Projects = () => {
               >
                 <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-black/40 via-transparent to-transparent opacity-30" />
 
-                <div className="md:flex">
-                  <div className="md:w-48 h-full md:h-auto shrink-0 overflow-hidden bg-stone-800">
+                <div className="flex flex-col md:flex">
+                  <div className="md:h-auto shrink-0 overflow-hidden bg-stone-800">
                     <img
                       src={proje.image_url || '/images/og.png'}
                       alt={proje.title || 'project'}
-                      className="h-full w-fit object-cover transition-transform duration-600 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-600"
                       loading='lazy'
                     />
                   </div>
