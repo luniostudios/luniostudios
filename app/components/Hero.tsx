@@ -49,9 +49,8 @@ const Hero = () => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="hidden flex-row gap-2 items-center bg-stone-900 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-md  shadow-lg">
-        🦃 10% Discount Code: <span className="font-mono">TURKEY25</span> 🦃
-        <Info className='w-3'></Info>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex z-10 flex-row gap-2 items-center max bg-green-900/20 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-xs  shadow-lg">
+        ⭐ Bored and want to join the team? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo1lmu4HEfiNqnrWJbYYxDG-5wi9xjhIVPIpsuS7cWx5pE9Q/viewform?usp=publish-editor" target='_blank' className="text-white underline">APPLY NOW</a> ⭐
       </motion.div>
 
       <div ref={containerRef} className=" font-roboto container mx-auto mt-16 px-6 relative z-10">

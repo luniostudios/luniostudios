@@ -62,7 +62,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <div className="flex items-center justify-between max-xl:flex-1 mx-20 max-xl:mx-2">
             <button onClick={() => { window.location.href = '/' }}>
               <div className="flex items-center gap-2 cursor-pointer">
-                <img src="/images/logol.png" className='w-70 max-md:w-35' alt="logo" title='logo' />
+                <img src="/images/logol.png" className='w-60 max-md:w-35' alt="logo" title='logo' />
               </div>
             </button>
 

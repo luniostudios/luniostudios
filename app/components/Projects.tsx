@@ -20,7 +20,7 @@ const Projects = () => {
     { id: 'web', label: 'Web Apps' },
     { id: 'mobile', label: 'Mobile' },
     { id: 'AI', label: 'AI' },
-    { id: 'cyber', label: 'Cybersecurity' },
+    { id: 'game', label: 'Game' },
   ];
 
   useEffect(() => {
@@ -104,7 +104,7 @@ const Projects = () => {
                     <img
                       src={proje.image_url || '/images/og.png'}
                       alt={proje.title || 'project'}
-                      className="h-full w-full object-cover transition-transform duration-600"
+                      className="h-full w-full object-scale-cover transition-transform duration-600"
                       loading='lazy'
                     />
                   </div>
