@@ -33,6 +33,11 @@ const translations: Translations = {
         es: 'Contáctanos',
     },
 
+    'hero.banner' : {
+        en: 'Bored and want to join the team? ',
+        es: '¿Aburrido y quieres unirte al equipo? ',
+    },
+
     'hero.title': {
         en: 'Make your Life Easier with our Studio',
         es: 'Haz tu Vida Más Fácil con nuestra Agencia',
