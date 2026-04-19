@@ -64,6 +64,23 @@ export default function RootLayout({
         <Analytics />
         <GoogleTagManager gtmId="GTM-W8T8ZTKS" />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
+        {/*Start of Tawk.to Script*/}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+              (function(){
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/69e4199e2b29171c3402c60e/1jmhg84j1';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
+        {/*End of Tawk.to Script*/}
       </body>
     </html>
   );

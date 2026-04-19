@@ -66,7 +66,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               </div>
             </button>
 
-            <div className="flex items-center justify-center gap-6 max-xl:hidden">
+            <div className="hidden items-center justify-center gap-6 max-xl:hidden">
               <a
                 href="https://github.com/luniostudios"
                 target="_blank"
