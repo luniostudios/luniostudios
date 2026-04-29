@@ -34,8 +34,18 @@ const translations: Translations = {
     },
 
     'hero.banner' : {
-        en: 'Bored and want to join the team? ',
-        es: '¿Aburrido y quieres unirte al equipo? ',
+        en: 'Want to Build Your Own Website?',
+        es: '¿Quieres hacer tu propio sitio web? ',
+    },
+
+    'hero.banner2' : {
+        en: 'Begin Now',
+        es: 'Comenzar',
+    },
+
+    'hero.pricing': {
+        en: 'Pricing',
+        es: 'Precios',
     },
 
     'hero.title': {

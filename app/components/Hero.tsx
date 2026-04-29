@@ -84,7 +84,7 @@ const Hero = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} className="flex z-10 flex-row gap-2 items-center max bg-green-900/20 border border-white/10 rounded-lg px-6 py-3 text-white text-md max-md:text-xs  shadow-lg">
-        ⭐ {t('hero.banner')} <a href="https://docs.google.com/forms/d/e/1FAIpQLSfo1lmu4HEfiNqnrWJbYYxDG-5wi9xjhIVPIpsuS7cWx5pE9Q/viewform?usp=publish-editor" target='_blank' className="text-white underline">APPLY NOW</a> ⭐
+        ⭐ {t('hero.banner')} <a href="https://luniobuilder.vercel.app/" target='_blank' className="text-white underline">{t('hero.banner2')}</a> ⭐
       </motion.div>
 
       <div ref={containerRef} className=" font-roboto container mx-auto mt-16 px-6 relative z-10">
@@ -109,7 +109,7 @@ const Hero = () => {
               className="group px-8 py-3 border border-slate-500/50 rounded-full font-semibold hover:bg-slate-500/10 transition-all duration-300 flex items-center gap-2"
             >
               <Calculator className="w-4 h-4" />
-              Pricing
+              {t('hero.pricing')}
             </button>
           </motion.div>
         </div>
