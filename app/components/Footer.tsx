@@ -14,10 +14,9 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { id: 'projects', label: `${t('header.portfolio')}`, href: '/projects' },
+    { id: 'projects', label: `Showcase`, href: '#portfolio' },
     { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
-    { id: 'team', label: `${t('header.team')}`, href: '/#team' },
-    { id: 'contact', label: `${t('header.contact')}`, href: '/#contact' },
+    { id: 'designLab', label: `Design Lab`, href: '#sandbox' },
   ];
 
   return (
@@ -68,7 +67,6 @@ const Footer = () => {
                     href={link.href}
                     className="text-gray-400 hover:text-gray-100 transition-colors text-sm inline-flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-green-400 transition-colors" />
                     {link.label}
                   </a>
                 </li>

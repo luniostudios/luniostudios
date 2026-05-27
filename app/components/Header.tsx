@@ -53,7 +53,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
   return (
     <header
-      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 text-black backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-none text-black'
+      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 text-black backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'fixed bg-white text-black'
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -64,41 +64,6 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                 <img src="/images/logol.png" className='w-40 max-md:w-35 invert' alt="logo" title='logo' />
               </div>
             </button>
-
-            <div className="hidden items-center justify-center gap-6 max-xl:hidden">
-              <a
-                href="https://github.com/luniostudios"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/luniostudios/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61575845991065"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/lunio_studios/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-            </div>
 
             <div className="hidden xl:flex items-center gap-8" suppressHydrationWarning>
               {navItems.map((item) => {

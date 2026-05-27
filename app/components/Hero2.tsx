@@ -4,6 +4,7 @@ import {
     Code,
     Flame
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero2 = () => {
 
@@ -171,8 +172,27 @@ const Hero2 = () => {
         return () => ctx.revert();
     }, [gsapLoaded]);
 
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+
+    const { t } = useLanguage();
+
     return (
-        <div ref={mainRef} className="bg-slate-50 relative">
+        <div ref={mainRef} className="bg-slate-50">
+            <div
+                className="absolute inset-0 pointer-events-none z-0"
+                style={{
+                    background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 211, 238, 0.1), transparent 50%)`,
+                }}
+            />
             {/* Grid Pattern Background overlay */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60" />
@@ -191,15 +211,17 @@ const Hero2 = () => {
                     <div className="lg:col-span-7 mt-20 flex flex-col justify-center space-y-8">
                         {/* Dynamic Title with animated parts */}
                         <h1 ref={titleRef} className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 leading-[0.95] flex flex-col">
-                            <span className="anim-title-word inline-block origin-left">ENGINEERING</span>
+                            <span className="anim-title-word inline-block origin-left">{t('hero.title')}</span>
                             <span className="anim-title-word inline-block origin-left text-black">
-                                DIGITAL MAGIC
+                                {t('hero2.title')}
                             </span>
-                            <span className="anim-title-word inline-block origin-left">FOR NEXT-GEN BRANDS</span>
+                            <span className="anim-title-word inline-block origin-left">
+                                {t('hero3.title')}
+                            </span>
                         </h1>
 
                         <p className="anim-desc text-lg text-slate-600 max-w-xl leading-relaxed">
-                            LUNIO Studios translates high-concept design, intelligent interaction, and state-of-the-art interactive development into jaw-dropping online ecosystem success.
+                            {t('hero.description')}
                         </p>
 
                         {/* Action and Micro Interaction Links */}
@@ -208,14 +230,14 @@ const Hero2 = () => {
                                 href="#portfolio"
                                 className="px-8 py-4 rounded-2xl bg-linear-to-r from-[#D31027] to-[#EA384D] text-white font-semibold flex items-center gap-3 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-0.5"
                             >
-                                Explore Showcase <ArrowRight className="w-5 h-5" />
+                                {t('hero.cta')} <ArrowRight className="w-5 h-5" />
                             </a>
 
                             <a
                                 href="#sandbox"
                                 className="px-6 py-4 rounded-2xl bg-white border border-slate-200 text-slate-700 font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all"
                             >
-                                Enter Interaction Lab
+                                {t('hero.sandbox')}
                             </a>
                         </div>
 

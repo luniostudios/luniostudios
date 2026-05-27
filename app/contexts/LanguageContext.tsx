@@ -49,16 +49,28 @@ const translations: Translations = {
     },
 
     'hero.title': {
-        en: 'Make your Life Easier with our Studio',
-        es: 'Haz tu Vida Más Fácil con nuestra Agencia',
+        en: 'ENGINEERING',
+        es: 'INGENIANDO',
+    },
+    'hero2.title': {
+        en: 'DIGITAL MAGIC',
+        es: 'MAGIA DIGITAL',
+    },
+    'hero3.title': {
+        en: 'FOR NEXT-GEN BRANDS',
+        es: 'PARA MARCAS AVANZADAS',
     },
     'hero.description': {
-        en: 'Crafting exceptional digital experiences with cutting-edge technologies. Passionate about clean code, innovative solutions, and pushing the boundaries of what\'s possible.',
-        es: 'Creando experiencias digitales excepcionales con tecnologías de vanguardia. Apasionados por el código limpio, soluciones innovadoras y superar los límites de lo posible.',
+        en: 'LUNIO Studios translates high-concept design, intelligent interaction, and state-of-the-art interactive development into jaw-dropping online ecosystem success.',
+        es: 'LUNIO Studios traduce el diseño de alto concepto, la interacción inteligente y el desarrollo interactivo de vanguardia en un éxito impresionante del ecosistema en línea.',
     },
     'hero.cta': {
-        en: 'Get in Touch',
-        es: 'Contáctanos',
+        en: 'Explore Showcase',
+        es: 'Explorar Demostración',
+    },
+    'hero.sandbox': {
+        en: 'Enter Interaction Lab',
+        es: 'Laboratorio Interactivo',
     },
     'hero.download': {
         en: 'Open CV',

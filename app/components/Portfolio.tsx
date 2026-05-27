@@ -205,6 +205,16 @@ const Portfolio = () => {
         return () => ctx.revert();
     }, [gsapLoaded]);
 
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
         <div>
             {/* CREATIVE SHOWCASE / FILTERABLE PORTFOLIO */}
@@ -214,6 +224,12 @@ const Portfolio = () => {
                 className="py-24 px-6 bg-white relative"
                 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}
             >
+                <div
+                    className="absolute inset-0 pointer-events-none z-0"
+                    style={{
+                        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 211, 238, 0.1), transparent 50%)`,
+                    }}
+                />
                 <div className="max-w-7xl mx-auto">
 
                     {/* Heading + Filter Tabs */}
@@ -234,8 +250,8 @@ const Portfolio = () => {
                                     key={cat.id}
                                     onClick={() => setActiveTab(cat.id)}
                                     className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 ${activeTab === cat.id
-                                            ? 'bg-slate-900 text-white shadow-lg'
-                                            : 'bg-slate-50 hover:bg-slate-100 text-slate-600'
+                                        ? 'bg-slate-900 text-white shadow-lg'
+                                        : 'bg-slate-50 hover:bg-slate-100 text-slate-600'
                                         }`}
                                 >
                                     {cat.label}
