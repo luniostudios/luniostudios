@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-white/10 bg-stone-950/50 backdrop-blur-lg">
+    <footer className="relative border-t border-white/10 bg-stone-950 backdrop-blur-lg">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -58,7 +58,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">
+            <h3 className="text-white text-xs uppercase font-semibold mb-4">
               {t('footer.quickLinks')}
             </h3>
             <ul className="space-y-2">
@@ -77,20 +77,24 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">
-              {t('footer.contactUs')}
-            </h4>
-            <div className="space-y-3">
-              <p className="text-gray-400 text-sm">
-                {t('footer.contactDescription')}
-              </p>
-              <a
-                href="#contact"
-                className="inline-block px-6 py-2 bg-linear-to-r from-[#D31027] to-[#EA384D] rounded-full text-sm font-semibold text-white hover:shadow-sm hover:shadow-red-500/50 transition-all duration-300 hover:scale-105"
-              >
-                {t('footer.getInTouch')}
-              </a>
-            </div>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Live Node Health</h4>
+            <div className="bg-transparent mt-5 p-5 rounded-2xl border border-slate-800 space-y-3.5 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Core Server Location</span>
+                  <span className="text-purple-400 font-mono">MIAMI_FL_US</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Node Status</span>
+                  <span className="text-emerald-400 font-bold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
+                    OPERATIONAL_100%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Interactive Latency</span>
+                  <span className="text-white font-mono">~1.12ms (FAST)</span>
+                </div>
+              </div>
           </div>
         </div>
 

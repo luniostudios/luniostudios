@@ -34,10 +34,9 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   }, []);
 
   const navItems = [
-    { id: 'projects', label: `${t('header.portfolio')}`, href: '/projects' },
+    { id: 'projects', label: `Showcase`, href: '#portfolio' },
     { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
-    { id: 'team', label: `${t('header.team')}`, href: '/#team' },
-    { id: 'contact', label: `${t('header.contact')}`, href: '/#contact' },
+    { id: 'designLab', label: `Design Lab`, href: '#sandbox' },
   ];
 
   const scrollToSection = (sectionId: string, sectionHrf: string) => {
@@ -54,7 +53,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
   return (
     <header
-      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-950/80 backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-transparent'
+      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 text-black backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'bg-none text-black'
         }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -62,7 +61,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <div className="flex items-center justify-between max-xl:flex-1 mx-20 max-xl:mx-2">
             <button onClick={() => { window.location.href = '/' }}>
               <div className="flex items-center gap-2 cursor-pointer">
-                <img src="/images/logol.png" className='w-60 max-md:w-35' alt="logo" title='logo' />
+                <img src="/images/logol.png" className='w-40 max-md:w-35 invert' alt="logo" title='logo' />
               </div>
             </button>
 
@@ -104,7 +103,6 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             <div className="hidden xl:flex items-center gap-8" suppressHydrationWarning>
               {navItems.map((item) => {
                 // compute active using client-only currentPath to prevent SSR/CSR mismatch
-                const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
                 return (
                   <button
                     key={item.id}
@@ -112,15 +110,11 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                     className={`relative text-sm font-medium transition-colors hover:text-gray-35`}
                   >
                     {item.label}
-
-                    {isActive && currentPath !== null && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-linear-to-r from-[#30933d] to-[#44ff8c] rounded-full" />
-                    )}
                   </button>
                 );
               })}
-              <div className="hidden xl:flex items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
-                <Languages className="w-4 h-4 text-white" />
+              <div className="hidden xl:flex border border-black items-center justify-center p-2 rounded-2xl bg-white/5 cursor-pointer">
+                <Languages className="w-4 h-4 text-black" />
                 <select value={language}
                   onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
                   <option value="en" className="bg-stone-500 text-white">EN</option>
@@ -130,8 +124,8 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             </div>
           </div>
           <div className='flex flex-row gap-2'>
-            <div className="max-xl:flex xl:hidden items-center justify-center p-2 rounded-2xl bg-white/5 hover:bg-linear-to-r text-sm hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110 cursor-pointer">
-              <Languages className="w-3 h-3 text-white" />
+            <div className="max-xl:flex border border-black xl:hidden items-center justify-center p-2 rounded-2xl bg-white/5 cursor-pointer">
+              <Languages className="w-3 h-3 text-black" />
               <select value={language}
                 onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none '>
                 <option value="en" className="bg-stone-500 text-white">EN</option>
@@ -150,14 +144,14 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
         {isMobileMenuOpen && (
 
-          <div className="relative w-full h-full mt-4 py-4 border-t-white/10 bg-stone-950/80 pl-6 flex flex-col gap-6" >
+          <div className="relative w-full h-full mt-4 py-4 border-t-white/10 bg-white pl-6 flex flex-col gap-6" >
             {navItems.map((item) => {
               const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id, item.href)}
-                  className={`flex flex-col pb-2 text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-white' : 'text-gray-300'
+                  className={`flex flex-col pb-2 text-sm font-medium transition-colors hover:text-gray-350 ${isActive ? 'text-black' : 'text-black-300'
                     }`}
                 >
                   {item.label}
