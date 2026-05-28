@@ -1,27 +1,6 @@
 import React, { useState, useEffect, useRef, Ref } from 'react';
-import {
-    ArrowRight,
-    Sparkles,
-    Layers,
-    Cpu,
-    Volume2,
-    VolumeX,
-    Play,
-    Grid,
-    Award,
-    Code,
-    Users,
-    TrendingUp,
-    Compass,
-    Briefcase,
-    ArrowUpRight,
-    Monitor,
-    Smartphone,
-    CheckCircle2,
-    ChevronRight,
-    Flame
-} from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Interactive = () => {
 
@@ -94,15 +73,10 @@ export const Interactive = () => {
         if (!gsapLoaded || !window.gsap) return;
 
         const gsap = window.gsap;
-        const ScrollTrigger = window.ScrollTrigger;
+        const scrollTrigger = window.ScrollTrigger;
 
         const ctx = gsap.context(() => {
             const tl = gsap.timeline();
-
-            tl.fromTo('.anim-badge',
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-            );
 
             tl.fromTo('.anim-title-word',
                 { opacity: 0, y: 50, rotateX: -20 },
@@ -128,23 +102,6 @@ export const Interactive = () => {
                 '-=0.2'
             );
 
-            // Scroll Trigger Animations for Services
-            gsap.fromTo('.service-card',
-                { opacity: 0, y: 60 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: servicesRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-
             // Showcase Trigger
             gsap.fromTo('.showcase-header',
                 { opacity: 0, y: 40 },
@@ -155,36 +112,6 @@ export const Interactive = () => {
                     scrollTrigger: {
                         trigger: showcaseRef.current,
                         start: 'top 85%'
-                    }
-                }
-            );
-
-            // Stats Trigger
-            gsap.fromTo('.stat-box',
-                { opacity: 0, scale: 0.85 },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    ease: 'back.out(1.5)',
-                    scrollTrigger: {
-                        trigger: statsRef.current,
-                        start: 'top 90%'
-                    }
-                }
-            );
-
-            // Interactive Sandbox trigger
-            gsap.fromTo('.sandbox-animate',
-                { opacity: 0, x: -40 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: sandboxRef.current,
-                        start: 'top 80%'
                     }
                 }
             );
@@ -208,9 +135,6 @@ export const Interactive = () => {
                 },
                 onComplete: () => {
                     setIsGenerating(false);
-                    setSandboxScale(sandboxScale);
-                    setSandboxNoise(sandboxNoise);
-                    setSandboxHue(sandboxHue);
                 }
             });
         } else {
@@ -226,13 +150,15 @@ export const Interactive = () => {
         }
     };
 
+    const { t } = useLanguage();
+
+
     return (
         <div>
             <motion.section
                 id="sandbox"
                 ref={sandboxRef}
-                className="py-24 px-6 bg-slate-100 relative "
-                initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}
+                className="py-24 px-6 bg-slate-100 relative anim-sandbox"
             >
                 {/* Subtle light effects */}
                 <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-200/40 rounded-full blur-[120px] pointer-events-none" />
@@ -241,19 +167,33 @@ export const Interactive = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                         {/* Left text column */}
-                        <div className="lg:col-span-5 space-y-6 sandbox-animate">
-                            <span className="text-xs font-bold tracking-widest text-red-700 bg-red-100 px-3.5 py-1.5 rounded-full uppercase">
-                                Interactive Sandbox
-                            </span>
-                            <h2 className="text-4xl md:text-5xl mt-5 font-black text-slate-950 tracking-tight leading-none">
-                                TINKER WITH THE FABRIC OF THE DIGITAL COSMOS
-                            </h2>
-                            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                                This interactive playground lets you experiment with parameters of dynamic styling. See how our web engineers control rendering values live to formulate custom digital worlds.
-                            </p>
+                        <div className="lg:col-span-5 space-y-6">
+                            <motion.span initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
+                                viewport={{ once: true }} className="text-xs font-bold tracking-widest text-red-700 bg-red-100 px-3.5 py-1.5 rounded-full uppercase">
+                                {t('labs.tag')}
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 50, rotateX: -20 }}
+                                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                                transition={{ duration: 0.8, staggerChildren: 0.1, ease: "easeInOut" }}
+                                viewport={{ once: true }} className="text-4xl md:text-5xl mt-5 font-black text-slate-950 tracking-tight leading-none">
+                                {t('labs.title')}
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, staggerChildren: 0.1, ease: "easeInOut" }}
+                                viewport={{ once: true }} className="text-slate-600 text-sm md:text-base leading-relaxed">
+                                {t('labs.description')}
+                            </motion.p>
 
                             {/* Micro controller box */}
-                            <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-sm">
+                            <motion.div initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, staggerChildren: 0.1, ease: "easeInOut" }}
+                                viewport={{ once: true }} className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-sm">
 
                                 {/* Parameter 1 */}
                                 <div className="space-y-2">
@@ -318,22 +258,25 @@ export const Interactive = () => {
                                         <button
                                             onClick={runFakeGeneration}
                                             disabled={isGenerating}
-                                            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 disabled:opacity-50"
+                                            className="px-4 py-2 bg-linear-to-r from-[#D31027] to-[#EA384D] hover:opacity-90 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 disabled:opacity-50"
                                         >
                                             {isGenerating ? 'Morphing...' : 'Morph'}
                                         </button>
                                     </div>
                                 </div>
 
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Right Interactive Result screen */}
-                        <div className="lg:col-span-7 flex justify-center">
+                        <motion.div initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, staggerChildren: 0.1, ease: "easeInOut" }}
+                            viewport={{ once: true }} className="lg:col-span-7 flex justify-center">
                             <div className="w-full max-w-lg aspect-square bg-white rounded-3xl p-6 border border-slate-200/80 shadow-2xl relative flex flex-col justify-between overflow-hidden">
 
                                 {/* Outer border lights */}
-                                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-48 h-1 bg-linear-to-r from-transparent via-red-500 to-transparent" />
+                                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-48 h-1 bg-linear-to-r from-transparent via-red-500 to-transparent animate-pulse" />
 
                                 {/* Visual Art Node */}
                                 <div className="flex-1 rounded-2xl relative flex items-center justify-center overflow-hidden bg-slate-900 transition-all duration-300">
@@ -384,7 +327,7 @@ export const Interactive = () => {
                                 </div>
 
                             </div>
-                        </div>
+                        </motion.div>
 
                     </div>
                 </div>

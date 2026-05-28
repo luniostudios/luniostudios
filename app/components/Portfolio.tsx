@@ -1,22 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
     ArrowRight,
+    Contact,
     Rocket,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Portfolio = () => {
 
     const [activeTab, setActiveTab] = useState('all');
-    const [gsapLoaded, setGsapLoaded] = useState(false);
 
     // Refs for GSAP
     const heroRef = useRef(null);
-    const mainRef = useRef(null);
-    const servicesRef = useRef(null);
     const showcaseRef = useRef(null);
-    const statsRef = useRef(null);
-    const sandboxRef = useRef(null);
 
     // Filter Categories
     const categories = [
@@ -71,140 +68,6 @@ const Portfolio = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    // Load GSAP and ScrollTrigger via CDN dynamically to prevent bundler errors
-    useEffect(() => {
-        const loadScript = (src: string) => {
-            return new Promise<void>((resolve, reject) => {
-                if (document.querySelector(`script[src="${src}"]`)) {
-                    resolve();
-                    return;
-                }
-                const script = document.createElement('script');
-                script.src = src;
-                script.async = true;
-                script.onload = () => resolve();
-                script.onerror = () => reject(new Error(`Failed to load script ${src}`));
-                document.body.appendChild(script);
-            });
-        };
-
-        Promise.all([
-            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'),
-            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js')
-        ])
-            .then(() => {
-                if (window.gsap && window.ScrollTrigger) {
-                    window.gsap.registerPlugin(window.ScrollTrigger);
-                    setGsapLoaded(true);
-                }
-            })
-            .catch((err) => console.error('Error loading GSAP scripts dynamically:', err));
-    }, []);
-
-    // GSAP Entrance Animations triggered only after GSAP is safely loaded
-    useEffect(() => {
-        if (!gsapLoaded || !window.gsap) return;
-
-        const gsap = window.gsap;
-        const ScrollTrigger = window.ScrollTrigger;
-
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline();
-
-            tl.fromTo('.anim-badge',
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-            );
-
-            tl.fromTo('.anim-title-word',
-                { opacity: 0, y: 50, rotateX: -20 },
-                { opacity: 1, y: 0, rotateX: 0, duration: 0.8, stagger: 0.1, ease: 'power4.out' },
-                '-=0.4'
-            );
-
-            tl.fromTo('.anim-desc',
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
-                '-=0.4'
-            );
-
-            tl.fromTo('.anim-buttons',
-                { opacity: 0, y: 15 },
-                { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-                '-=0.3'
-            );
-
-            tl.fromTo('.anim-interactive-preview',
-                { opacity: 0, scale: 0.95 },
-                { opacity: 1, scale: 1, duration: 1, ease: 'elastic.out(1, 0.75)' },
-                '-=0.2'
-            );
-
-            // Scroll Trigger Animations for Services
-            gsap.fromTo('.service-card',
-                { opacity: 0, y: 60 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: servicesRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-
-            // Showcase Trigger
-            gsap.fromTo('.showcase-header',
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: showcaseRef.current,
-                        start: 'top 85%'
-                    }
-                }
-            );
-
-            // Stats Trigger
-            gsap.fromTo('.stat-box',
-                { opacity: 0, scale: 0.85 },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    ease: 'back.out(1.5)',
-                    scrollTrigger: {
-                        trigger: statsRef.current,
-                        start: 'top 90%'
-                    }
-                }
-            );
-
-            // Interactive Sandbox trigger
-            gsap.fromTo('.sandbox-animate',
-                { opacity: 0, x: -40 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: sandboxRef.current,
-                        start: 'top 80%'
-                    }
-                }
-            );
-        }, mainRef);
-
-        return () => ctx.revert();
-    }, [gsapLoaded]);
-
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -215,13 +78,21 @@ const Portfolio = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
+    const { t } = useLanguage();
+    const [modalOpen, setModalOpen] = useState(false)
+
+    const handleModal = () => {
+        setModalOpen(!modalOpen)
+    }
+
     return (
         <div>
+
             {/* CREATIVE SHOWCASE / FILTERABLE PORTFOLIO */}
             <motion.section
                 id="portfolio"
                 ref={showcaseRef}
-                className="py-24 px-6 bg-white relative"
+                className="py-24 px-6 relative"
                 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}
             >
                 <div
@@ -236,10 +107,10 @@ const Portfolio = () => {
                     <div className="showcase-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-3 leading-none">
-                                CREATIVE SHOWCASE
+                                {t('showcase.title')}
                             </h2>
                             <p className="text-slate-500 text-sm md:text-base mt-2 max-w-lg">
-                                Explore a premium selection of our newest launches. We transform visions into highly functional visual systems.
+                                {t('showcase.description')}
                             </p>
                         </div>
 
@@ -308,23 +179,23 @@ const Portfolio = () => {
                         <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-[100px] pointer-events-none" />
                         <div className="relative z-10 max-w-2xl space-y-6">
                             <h3 className="text-3xl md:text-4xl font-black tracking-tight leading-none">
-                                HAVE A HIGH-STAKES CREATIVE CHALLENGE?
+                                {t('showcase.title2')}
                             </h3>
                             <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                                We don’t do bland layouts. We engineer high-concept web worlds, fluid user systems, and high-performance digital ecosystems that win markets. Let's craft yours.
+                                {t('showcase.description2')}
                             </p>
                             <div className="flex flex-wrap gap-4 pt-2">
-                                <a
-                                    href="#contact"
-                                    className="px-6 py-3.5 bg-white text-slate-950 hover:bg-red-700 hover:text-white transition-all font-bold rounded-2xl text-sm flex items-center gap-2"
+                                <button
+                                    onClick={handleModal}
+                                    className="px-6 py-3.5 bg-white text-slate-950 hover:bg-linear-to-r from-[#D31027] to-[#EA384D] hover:text-white transition-all font-bold rounded-2xl text-sm flex items-center gap-2"
                                 >
-                                    Start Project Dialogue <ArrowRight className="w-4 h-4" />
-                                </a>
+                                    {t('showcase.cta')} <ArrowRight className="w-4 h-4" />
+                                </button>
                                 <a
                                     href="#sandbox"
                                     className="px-6 py-3.5 bg-slate-800/80 hover:bg-slate-800 text-slate-300 font-bold rounded-2xl text-sm border border-slate-700"
                                 >
-                                    Try the Sandbox
+                                    {t('showcase.cta2')}
                                 </a>
                             </div>
                         </div>

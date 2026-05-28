@@ -17,16 +17,16 @@ interface LanguageContextType {
 const translations: Translations = {
     // Header Translations
     'header.portfolio': {
-        en: 'Portfolio',
-        es: 'Portafolio',
+        en: 'Showcase',
+        es: 'Demostración',
     },
     'header.skills': {
         en: 'Tools & Skills',
         es: 'Herramientas',
     },
-    'header.team': {
-        en: 'The Team',
-        es: 'El Equipo',
+    'header.sandbox': {
+        en: 'Interaction Lab',
+        es: 'Laboratorio Interactivo',
     },
     'header.contact': {
         en: 'Contact Us',
@@ -34,13 +34,13 @@ const translations: Translations = {
     },
 
     'hero.banner' : {
-        en: 'Want to Build Your Own Website?',
+        en: 'Want to Build Your Own Website? ',
         es: '¿Quieres hacer tu propio sitio web? ',
     },
 
     'hero.banner2' : {
-        en: 'Begin Now',
-        es: 'Comenzar',
+        en: 'Learn more',
+        es: 'Aprender más',
     },
 
     'hero.pricing': {
@@ -100,57 +100,45 @@ const translations: Translations = {
         en: 'A comprehensive toolkit of modern technologies and frameworks we work with',
         es: 'Un conjunto completo de herramientas con tecnologías y frameworks modernos con los que trabajamos',
     },
-    'team.title': {
-        en: 'Our Expert Team',
-        es: 'Nuestro Equipo Experto',
+    'skills.subtitle': {
+        en: '* Move skills around. (Drag & Drop Experience)',
+        es: '* Mueve las habilidades. (Experiencia de arrastrar y soltar)',
     },
-    'team.description': {
-        en: 'Get to know the skilled professionals behind our innovative solutions',
-        es: 'Conoce a los profesionales capacitados detrás de nuestras soluciones innovadoras',
+    'labs.tag': {
+        en: 'Interactive Sandbox',
+        es: 'Sandbox Interactivo',
     },
-    'contact.title': {
-        en: 'Get in Touch',
-        es: 'Ponte en Contacto',
+    'labs.title': {
+        en: 'TINKER WITH THE FABRIC OF THE DIGITAL COSMOS',
+        es: 'EXPERIMENTA CON LA TRAMA DEL COSMOS DIGITAL',
     },
-    'contact.description': {
-        en: 'Whether you have a question about services, pricing, need a demo, or anything else, our team is ready to answer all your questions.',
-        es: 'Ya sea que tengas una pregunta sobre servicios, precios, necesites una demostración o cualquier otra cosa, nuestro equipo está listo para responder todas tus preguntas.',
+    'labs.description': {
+        en: 'This interactive playground lets you experiment with parameters of dynamic styling. See how our web engineers control rendering values live to formulate custom digital worlds',
+        es: 'Este espacio de juego interactivo te permite experimentar con los parámetros del estilo dinámico. Ve cómo nuestros ingenieros web controlan los valores de renderizado en vivo para formular mundos digitales personalizados',
     },
-    'contact.subtitle': {
-        en: "Let's Connect",
-        es: 'Conectémonos',
+    'showcase.title': {
+        en: 'Creative Showcase',
+        es: 'Demostración Creativa',
     },
-    'contact.subdescription': {
-        en: 'Fill out the form below or reach us through our social media channels.',
-        es: 'Rellena el formulario a continuación o contáctanos a través de nuestras redes sociales.',
+    'showcase.description': {
+        en: 'Explore a premium selection of our newest launches. We transform visions into highly functional visual systems.',
+        es: 'Explora una selección premium de nuestros lanzamientos más recientes. Transformamos visiones en sistemas visuales altamente funcionales.',
     },
-    'contact.responseTime': {
-        en: 'Response Time',
-        es: 'Tiempo de Respuesta',
+    'showcase.title2': {
+        en: 'HAVE A HIGH-STAKES CREATIVE CHALLENGE?',
+        es: '¿TIENES UN DESAFÍO CREATIVO DE ALTO RIESGO?',
     },
-    'contact.responseTimeValue': {
-        en: 'Within 24 hours',
-        es: 'Dentro de 24 horas',
+    'showcase.description2': {
+        en: 'We dont do bland layouts. We engineer high-concept web worlds, fluid user systems, and high-performance digital ecosystems that win markets. Lets craft yours.',
+        es: 'No hacemos diseños aburridos. Diseñamos mundos web de alto concepto, sistemas de usuario fluidos y ecosistemas digitales de alto rendimiento que ganan mercados. Vamos a crear el tuyo.',
     },
-    'contact.followUs': {
-        en: 'Or find us on social media',
-        es: 'O encuéntranos en las redes sociales',
+    'showcase.cta': {
+        en: 'Start Project Dialog',
+        es: 'Iniciar Diálogo de Proyecto',
     },
-    'contact.name': {
-        en: 'Full Name',
-        es: 'Nombre Completo',
-    },
-    'contact.email': {
-        en: 'Your Email',
-        es: 'Correo Electrónico',
-    },
-    'contact.message': {
-        en: 'Your Message',
-        es: 'Tu Mensaje',
-    },
-    'contact.send': {
-        en: 'Send Message',
-        es: 'Enviar Mensaje',
+    'showcase.cta2': {
+        en: 'Try the Sandbox',
+        es: 'Probar el Sandbox',
     },
     'footer.quickLinks': {
         en: 'Quick Links',

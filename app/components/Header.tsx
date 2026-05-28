@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Code2, Instagram, Facebook, Languages, Coffee, Moon, Sun, Plane } from 'lucide-react';
+import { Menu, X, Languages, Rocket} from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
+import Link from 'next/link';
 
 interface HeaderProps {
   activeSection: string;
@@ -34,9 +35,9 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   }, []);
 
   const navItems = [
-    { id: 'projects', label: `Showcase`, href: '#portfolio' },
+    { id: 'projects', label: `${t('header.portfolio')}`, href: '#portfolio' },
     { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
-    { id: 'designLab', label: `Design Lab`, href: '#sandbox' },
+    { id: 'designLab', label: `${t('header.sandbox')}`, href: '#sandbox' },
   ];
 
   const scrollToSection = (sectionId: string, sectionHrf: string) => {
@@ -53,17 +54,24 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
   return (
     <header
-      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 text-black backdrop-blur-md shadow-lg shadow-cyan-500/5' : 'fixed bg-white text-black'
+      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 text-black backdrop-blur-lg shadow-lg shadow-cyan-500/5' : 'fixed bg-white text-black'
         }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <div className="flex items-center justify-center gap-2 w=full bg-linear-to-tr from-slate-900 to-slate-950 py-1">
+        <h1 className="text-white text-md max-md:text-sm font-semibold">🔨 {t('hero.banner')} <a href="https://www.luniobuilder.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 underline">{t('hero.banner2')} </a>🔨</h1>
+      </div>
+      <nav className="container mx-auto px-6 py-6">
         <div className='flex flex-col max-xl:flex-row w-full'>
           <div className="flex items-center justify-between max-xl:flex-1 mx-20 max-xl:mx-2">
-            <button onClick={() => { window.location.href = '/' }}>
-              <div className="flex items-center gap-2 cursor-pointer">
-                <img src="/images/logol.png" className='w-40 max-md:w-35 invert' alt="logo" title='logo' />
+            <Link href={"/"}>
+              <div className="flex items-center gap-2 cursor-pointer font-bold uppercase text-lg">
+                <div className='flex flex-row text-2xl align-middle items-center'>
+                  <h1>LUNI</h1>
+                  <Rocket width={20} className="text-bold" />
+                </div>
+                <h1 className='flex flex-row text-2xl align-middle items-center'>Studios</h1>
               </div>
-            </button>
+            </Link>
 
             <div className="hidden xl:flex items-center gap-8" suppressHydrationWarning>
               {navItems.map((item) => {
@@ -72,7 +80,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id, item.href)}
-                    className={`relative text-sm font-medium transition-colors hover:text-gray-35`}
+                    className={`relative text-md font-medium transition-colors hover:text-gray-35`}
                   >
                     {item.label}
                   </button>
@@ -81,9 +89,9 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
               <div className="hidden xl:flex border border-black items-center justify-center p-2 rounded-2xl bg-white/5 cursor-pointer">
                 <Languages className="w-4 h-4 text-black" />
                 <select value={language}
-                  onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none'>
-                  <option value="en" className="bg-stone-500 text-white">EN</option>
-                  <option value="es" className="bg-stone-500 text-white">ES</option>
+                  onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none text-sm bg-transparent'>
+                  <option value="en" className="bg-stone-500 text-white text-sm">EN</option>
+                  <option value="es" className="bg-stone-500 text-white text-sm">ES</option>
                 </select>
               </div>
             </div>
@@ -92,9 +100,9 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
             <div className="max-xl:flex border border-black xl:hidden items-center justify-center p-2 rounded-2xl bg-white/5 cursor-pointer">
               <Languages className="w-3 h-3 text-black" />
               <select value={language}
-                onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none '>
-                <option value="en" className="bg-stone-500 text-white">EN</option>
-                <option value="es" className="bg-stone-500 text-white">ES</option>
+                onChange={(e) => setLanguage(e.target.value as 'en' | 'es')} name="" id="" className='outline-none text-sm bg-transparent'>
+                <option value="en" className="bg-stone-500 text-white text-sm">EN</option>
+                <option value="es" className="bg-stone-500 text-white text-sm">ES</option>
               </select>
             </div>
             <button
@@ -109,7 +117,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
 
         {isMobileMenuOpen && (
 
-          <div className="relative w-full h-full mt-4 py-4 border-t-white/10 bg-white pl-6 flex flex-col gap-6" >
+          <div className="fixed left-0 w-full min-h-screen mt-4 py-4 border-t-white/10 bg-white flex flex-col gap-6" >
             {navItems.map((item) => {
               const isActive = activeSection === item.id || (item.id === 'projects' && currentPath === '/projects');
               return (

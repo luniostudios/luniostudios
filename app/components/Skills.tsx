@@ -115,7 +115,7 @@ const Skills = () => {
             {t('skills.description')}
           </motion.h2>
           <motion.h3 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }} viewport={{ once: true }} className="text-green-300 text-sm mt-2">
-            Move skills around to customize your experience. (Drag & Drop Experience)
+            {t('skills.subtitle')}
           </motion.h3>
         </div>
 

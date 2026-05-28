@@ -1,10 +1,10 @@
-import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook, Sun, ArrowBigRight, ArrowRight } from 'lucide-react';
+import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook, Sun, ArrowBigRight, ArrowRight, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const {t} = useLanguage();
+  const { t } = useLanguage();
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/luniostudios', label: 'GitHub' },
@@ -22,15 +22,18 @@ const Footer = () => {
   return (
     <footer className="relative border-t border-white/10 bg-stone-950 backdrop-blur-lg">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Link href={"/"}>
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <img src="/images/logos.png" className='w-7 max-md:w-5' alt="logo" title='logo' />
-                  <h1 className="font-roboto text-4xl font-bold text-white">
-                    LUNIO Studios
-                  </h1>
+                  <div className="flex items-center gap-2 cursor-pointer font-bold uppercase text-lg">
+                    <div className='flex flex-row text-2xl align-middle items-center'>
+                      <h1>LUNI</h1>
+                      <Rocket width={20} className="text-bold" />
+                    </div>
+                    <h1 className='flex flex-row text-2xl align-middle items-center'>Studios</h1>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -75,24 +78,45 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Legal</h4>
+            <ul className="mt-5 space-y-2 text-sm">
+              <li>
+                <a href="/privacy-policy" className="text-gray-400 hover:text-gray-100 transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms-of-service" className="text-gray-400 hover:text-gray-100 transition-colors">
+                  Termns of Service
+                </a>
+              </li>
+              <li>
+                <a href="/cookie-policy" className="text-gray-400 hover:text-gray-100 transition-colors">
+                  Usage Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white">Live Node Health</h4>
             <div className="bg-transparent mt-5 p-5 rounded-2xl border border-slate-800 space-y-3.5 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Core Server Location</span>
-                  <span className="text-purple-400 font-mono">MIAMI_FL_US</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Node Status</span>
-                  <span className="text-emerald-400 font-bold flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
-                    OPERATIONAL_100%
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Interactive Latency</span>
-                  <span className="text-white font-mono">~1.12ms (FAST)</span>
-                </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Core Server Location</span>
+                <span className="text-purple-400 font-mono">MIAMI_FL_US</span>
               </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Node Status</span>
+                <span className="text-emerald-400 font-bold flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
+                  OPERATIONAL_100%
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Interactive Latency</span>
+                <span className="text-white font-mono">~1.12ms (FAST)</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -102,7 +126,9 @@ const Footer = () => {
               © {currentYear} LUNIO Studios. {t('footer.rightsReserved')}
             </h5>
             <h6 className="text-gray-400 text-sm flex items-center gap-2">
-              {t('footer.hecho')} <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> {t('footer.por')} LUNIO Studios
+              <a href="https://www.luniostudios.com" rel="noopener noreferrer" className="flex items-center gap-1">
+                {t('footer.hecho')} <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> {t('footer.por')} <h1 className='underline hover:text-gray-100 transition-colors'>LUNIO Studios</h1>
+              </a>
             </h6>
           </div>
         </div>
