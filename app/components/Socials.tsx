@@ -46,7 +46,7 @@ const Socials = () => {
                 title="X"
                 className="p-2 rounded-full bg-black hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
             >
-                <Twitter className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-white" />
             </a>
         </div>
     )
