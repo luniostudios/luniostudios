@@ -39,8 +39,8 @@ const translations: Translations = {
     },
 
     'hero.banner2' : {
-        en: 'Learn more',
-        es: 'Aprender más',
+        en: 'Learn More',
+        es: 'Aprender Más',
     },
 
     'hero.pricing': {

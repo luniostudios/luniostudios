@@ -5,6 +5,8 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
+import ContactModal from './ContactModal';
+import Link from 'next/link';
 
 const Portfolio = () => {
 
@@ -78,11 +80,6 @@ const Portfolio = () => {
     }, []);
 
     const { t } = useLanguage();
-    const [modalOpen, setModalOpen] = useState(false)
-
-    const handleModal = () => {
-        setModalOpen(!modalOpen)
-    }
 
     return (
         <div>
@@ -183,12 +180,12 @@ const Portfolio = () => {
                                 {t('showcase.description2')}
                             </p>
                             <div className="flex flex-wrap gap-4 pt-2">
-                                <button
-                                    onClick={handleModal}
+                                <Link
+                                    href="#pricing"
                                     className="px-6 py-3.5 bg-white text-slate-950 hover:bg-linear-to-r from-[#D31027] to-[#EA384D] hover:text-white transition-all font-bold rounded-2xl text-sm flex items-center gap-2"
                                 >
                                     {t('showcase.cta')} <ArrowRight className="w-4 h-4" />
-                                </button>
+                                </Link>
                                 <a
                                     href="#sandbox"
                                     className="px-6 py-3.5 bg-slate-800/80 hover:bg-slate-800 text-slate-300 font-bold rounded-2xl text-sm border border-slate-700"
