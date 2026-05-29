@@ -1,4 +1,4 @@
-import { Github, Linkedin, Facebook, Instagram } from 'lucide-react'
+import { Github, Linkedin, Facebook, Instagram, Twitter, X } from 'lucide-react'
 
 const Socials = () => {
     return (
@@ -38,6 +38,15 @@ const Socials = () => {
                 className="p-2 rounded-full bg-black hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
             >
                 <Instagram className="w-5 h-5 text-white" />
+            </a>
+            <a
+                href="https://x.com/LUNIOStudios"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="X"
+                className="p-2 rounded-full bg-black hover:bg-linear-to-r hover:from-stone-300/20 hover:to-stone-500/20 border border-stone-300/10 hover:border-stone-500/50 transition-all duration-300 hover:scale-110"
+            >
+                <X className="w-5 h-5 text-white" />
             </a>
         </div>
     )
