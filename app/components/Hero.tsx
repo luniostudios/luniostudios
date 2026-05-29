@@ -127,7 +127,7 @@ const Hero = () => {
     const { t } = useLanguage();
 
     return (
-        <div ref={mainRef} className="bg-slate-50">
+        <div ref={mainRef} className="bg-slate-50 selection:bg-red-100">
             <div
                 className="absolute inset-0 pointer-events-none z-0 items-center justify-center"
                 style={{
@@ -276,7 +276,7 @@ const Hero = () => {
                         </div>
 
                         {/* Little absolute elements flying off */}
-                        <div className="absolute -bottom-6 -left-6 bg-amber-400 text-slate-900 px-4 py-3 rounded-2xl flex items-center gap-2 font-bold text-xs shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                        <div className="absolute -bottom-6 -left-6 bg-amber-400 text-slate-900 px-4 py-3 rounded-2xl max-md:-left-3 flex items-center gap-2 font-bold text-xs shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                             <Code className="w-4 h-4" /> Custom Code Architecture
                         </div>
                     </div>

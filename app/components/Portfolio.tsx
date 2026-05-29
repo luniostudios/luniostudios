@@ -92,7 +92,7 @@ const Portfolio = () => {
             <motion.section
                 id="portfolio"
                 ref={showcaseRef}
-                className="py-24 px-6 relative"
+                className="py-24 px-6 relative "
                 initial={{ opacity: 0 }} whileInView={{ opacity: 100 }} transition={{ duration: 1, ease: "easeInOut" }} viewport={{ once: true }}
             >
                 <div
@@ -102,7 +102,6 @@ const Portfolio = () => {
                     }}
                 />
                 <div className="max-w-7xl mx-auto">
-
                     {/* Heading + Filter Tabs */}
                     <div className="showcase-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                         <div>

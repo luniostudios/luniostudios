@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function EmailTemplate({ name, email, message }: { name: string; email: string; message: string }) {
+export function EmailTemplate({ email, message }: { email: string; message: string }) {
   return (
     <div
       style={{
@@ -19,10 +19,6 @@ export function EmailTemplate({ name, email, message }: { name: string; email: s
       </div>
       <table style={{ width: '100%', marginBottom: '24px' }}>
         <tbody>
-          <tr>
-            <td style={{ fontWeight: 500, padding: '8px 0', width: '120px' }}>Name:</td>
-            <td style={{ padding: '8px 0' }}>{name}</td>
-          </tr>
           <tr>
             <td style={{ fontWeight: 500, padding: '8px 0' }}>Email:</td>
             <td style={{ padding: '8px 0' }}>{email}</td>

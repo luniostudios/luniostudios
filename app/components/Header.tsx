@@ -38,6 +38,7 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
     { id: 'projects', label: `${t('header.portfolio')}`, href: '#portfolio' },
     { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
     { id: 'designLab', label: `${t('header.sandbox')}`, href: '#sandbox' },
+    { id: 'pricing', label: `${t('header.pricing')}`, href: '#pricing' },
   ];
 
   const scrollToSection = (sectionId: string, sectionHrf: string) => {

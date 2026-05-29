@@ -28,13 +28,14 @@ body {
 }
 
 @keyframes colorCycle {
-  0%, 100% { background-color: #ef4444; } /* red-500 */
-  33% { background-color: #3b82f6; }      /* blue-500 */
-  66% { background-color: #10b981; }      /* emerald-500 */
+  0%, 100% { background-color: #ef4444; }
+  33% { background-color: #3b82f6; }      
+  66% { background-color: #10b981; }      
+  100% { background-color: #b910b0; }      
 }
 
 .animate-color-cycle {
-  animation: colorCycle 6s infinite;
+  animation: colorCycle 10s infinite;
   animation-timing-function: ease-in-out;
 }
 
@@ -43,7 +44,8 @@ body {
   height: 100%;
   background: linear-gradient(to right, #D31027 0%, #EA384D 100%);
   width: 1%; /* Starting point */
-  animation: fillUp 10s infinite forwards; /* Runs the animation once and stays at 100% */
+  animation: fillUp 10s infinite forwards;
+  animation-timing-function: ease-in-out;
 }
 
 /* Animation timeline going from 1% to 100% */

@@ -6,6 +6,8 @@ import {
     X,
     Clock,
 } from 'lucide-react';
+import ContactModal from './ContactModal';
+import { useLanguage } from '../contexts/LanguageContext';
 
 type ServicesSelected = {
     [key: string]: boolean;
@@ -42,12 +44,12 @@ export default function App() {
         }
         if (servicesSelected.seo) {
             basePrice += 300;
-            baseWeeks += 2;
+            baseWeeks += 1;
             activeFeatures.push("SEO Audit");
         }
         if (servicesSelected.infra) {
             basePrice += 400;
-            baseWeeks += 2;
+            baseWeeks += 1;
             activeFeatures.push("Cloud Setup");
         }
 
@@ -85,10 +87,14 @@ export default function App() {
         };
     }, [servicesSelected, scope, urgency]);
 
+    function toggleModal() {
+        setIsModalOpen(!isModalOpen)
+    }
+
+    const { t } = useLanguage();
+
     return (
-        <div className="bg-slate-50 text-slate-800 antialiased selection:bg-violet-500 selection:text-white flex flex-col font-sans relative overflow-x-hidden">
-
-
+        <div id='pricing' className="bg-slate-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white flex flex-col font-sans relative overflow-x-hidden">
             <main className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
 
                 {/* Dynamic Package Creator Interactive Widget */}
@@ -97,8 +103,8 @@ export default function App() {
 
                     <div className="relative z-10 max-w-4xl mx-auto">
                         <div className="text-center mb-10">
-                            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Estimate Your Project Cost</h2>
-                            <p className="text-slate-500 text-sm mt-1">Select requirements below to estimate total timeline and pricing dynamically.</p>
+                            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{t('estimate.title')}</h2>
+                            <p className="text-slate-500 text-sm mt-1">{t('estimate.desc')}</p>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -247,53 +253,8 @@ export default function App() {
                         </div>
                     </div>
                 </div>
-
             </main>
-
-            {/* Fully Functional Dynamic Modal (No alerts allowed) */}
-            <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 ${isModalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-                <div className={`bg-white rounded-3xl border border-slate-100 shadow-2xl p-8 max-w-md w-full relative transform transition-transform duration-300 ${isModalOpen ? 'scale-100' : 'scale-95'}`}>
-                    <button
-                        onClick={() => setIsModalOpen(false)}
-                        className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors"
-                    >
-                        <X className="w-5 h-5" />
-                    </button>
-
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-5 animate-bounce">
-                            <CheckCircle2 className="w-8 h-8" />
-                        </div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">Configuration Submitted!</h3>
-                        <p className="text-sm text-slate-600 mb-6">
-                            Your customized development package choice has been successfully structured. Our production experts will follow up with complete specs inside 24 hours.
-                        </p>
-
-                        <div className="w-full bg-slate-50 p-4 rounded-2xl border border-slate-200/30 text-left mb-6 space-y-1.5">
-                            <p className="text-xs text-slate-500 font-semibold uppercase tracking-wide">Selected Package Recap</p>
-                            <div className="flex justify-between text-xs text-slate-800">
-                                <span className="font-medium">Total Active Modules:</span>
-                                <span className="font-bold">{estimationDetails.features.length} selected</span>
-                            </div>
-                            <div className="flex justify-between text-xs text-slate-800">
-                                <span className="font-medium">Scope Configuration:</span>
-                                <span className="font-bold">{estimationDetails.scopeLabel}</span>
-                            </div>
-                            <div className="flex justify-between text-xs text-slate-800">
-                                <span className="font-medium">Estimated Pricing:</span>
-                                <span className="font-bold text-violet-600">${estimationDetails.price.toLocaleString()}</span>
-                            </div>
-                        </div>
-
-                        <button
-                            onClick={() => setIsModalOpen(false)}
-                            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200"
-                        >
-                            Close Details
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <ContactModal features={estimationDetails.features.length} scope={estimationDetails.scopeLabel} price={estimationDetails.price} isModalOpen={isModalOpen} toggleModalOpen={toggleModal} />
         </div>
     );
 }

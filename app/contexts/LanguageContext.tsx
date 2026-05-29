@@ -28,9 +28,9 @@ const translations: Translations = {
         en: 'Interaction Lab',
         es: 'Laboratorio Interactivo',
     },
-    'header.contact': {
-        en: 'Contact Us',
-        es: 'Contáctanos',
+    'header.pricing': {
+        en: 'Pricing',
+        es: 'Precio',
     },
 
     'hero.banner' : {
@@ -139,6 +139,30 @@ const translations: Translations = {
     'showcase.cta2': {
         en: 'Try the Sandbox',
         es: 'Probar el Sandbox',
+    },
+    'estimate.title': {
+        en: 'ESTIMATE YOUR PROJECT COST',
+        es: 'ESTIMA EL COSTO DE TU PROYECTO'
+    },
+    'estimate.desc': {
+        en: 'Select requirements below to estimate total timeline and pricing dynamically.',
+        es: 'Selecciona los requerimientos para estimar el precio y tiempo total.'
+    },
+    'contact.title': {
+        en: 'Submit Configuration!',
+        es: 'Somete Configuracion!'
+    },
+    'contact.desc': {
+        en: 'Submit your custom package so our team can get back to you with a custom quote. Our production experts will follow up with complete specs inside 24 hours.',
+        es: 'Somete tu paquete costomizado para que nuestro equipo pueda revisarlo y proveer un precio justo. Nuestro equipo de expertos te contactara dentro de 24 horas.'
+    },
+    'contact.email': {
+        en: 'Email',
+        es: 'Correo Electronico'
+    },
+    'contact.message': {
+        en: 'Aditional Info',
+        es: 'Informacion Adicional'
     },
     'footer.quickLinks': {
         en: 'Quick Links',
