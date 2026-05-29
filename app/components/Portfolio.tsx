@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
     ArrowRight,
-    Contact,
     Rocket,
 } from 'lucide-react';
 import { motion } from 'framer-motion';

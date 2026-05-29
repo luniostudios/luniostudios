@@ -1,4 +1,4 @@
-import { CheckCircle2, Mail, MessageSquare, X } from 'lucide-react'
+import { Mail, MessageSquare, X } from 'lucide-react'
 import React, { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext';
 import toast from 'react-hot-toast';

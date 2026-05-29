@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Ref } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -14,10 +14,8 @@ export const Interactive = () => {
     // Refs for GSAP
     const heroRef = useRef(null);
     const mainRef = useRef(null);
-    const servicesRef = useRef(null);
     const showcaseRef = useRef(null);
     const sandboxRef = useRef(null);
-    const statsRef = useRef(null);
 
 
     // Dynamic Cursor Tracking
@@ -73,7 +71,6 @@ export const Interactive = () => {
         if (!gsapLoaded || !window.gsap) return;
 
         const gsap = window.gsap;
-        const scrollTrigger = window.ScrollTrigger;
 
         const ctx = gsap.context(() => {
             const tl = gsap.timeline();

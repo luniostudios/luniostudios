@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
     ArrowRight,
     Code,
-    Flame,
     Rocket
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';

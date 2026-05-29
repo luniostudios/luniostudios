@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka, Fuzzy_Bubbles, Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Fredoka, Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -22,15 +22,21 @@ const custom = Fredoka({
   subsets: ["latin"],
 });
 
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-})
-
-
 export const metadata: Metadata = {
   title: "LUNIO Studios - Web Design & Development Agency",
   description: "LUNIO Studios is a cutting-edge design and development agency specializing in creating stunning websites, innovative applications, and immersive digital experiences. Our team of experts combines creativity and technology to bring your vision to life.",
+  keywords: [
+    "LUNIO Studios",
+    "Website Development",
+    "Website Design",
+    "Website Design and Development Agency",
+    "Design and Development Agency",
+    "Design",
+    "Development",
+  ],
+  alternates: {
+    canonical: "https://www.luniostudios.com/",
+  },
 };
 
 

@@ -1,4 +1,4 @@
-import { Heart, Code2, Github, Linkedin, Twitter, Mail, Instagram, Facebook, Sun, ArrowBigRight, ArrowRight, Rocket } from 'lucide-react';
+import { Heart, Github, Linkedin, Instagram, Facebook, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 

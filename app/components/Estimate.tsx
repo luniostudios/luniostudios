@@ -1,9 +1,5 @@
 import { useState, useMemo } from 'react';
 import {
-    Sparkles,
-    Calendar,
-    CheckCircle2,
-    X,
     Clock,
 } from 'lucide-react';
 import ContactModal from './ContactModal';

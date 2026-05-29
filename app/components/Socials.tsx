@@ -1,5 +1,4 @@
 import { Github, Linkedin, Facebook, Instagram } from 'lucide-react'
-import React from 'react'
 
 const Socials = () => {
     return (
