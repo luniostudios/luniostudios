@@ -90,7 +90,7 @@ export default function App() {
     const { t } = useLanguage();
 
     return (
-        <div id='pricing' className="bg-slate-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white flex flex-col font-sans relative overflow-x-hidden">
+        <div id='pricing' className="bg-slate-50 py-28 text-slate-800 antialiased selection:bg-red-500 selection:text-white flex flex-col font-sans relative overflow-x-hidden">
             <main className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
 
                 {/* Dynamic Package Creator Interactive Widget */}

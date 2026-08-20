@@ -198,8 +198,9 @@ const Hero = () => {
                     </div>
 
                     {/* Right Column: Interactive Mechanical Visualizer */}
-                    <div className="lg:col-span-5 relative anim-interactive-preview">
-                        <div className="hero-magnetic-card relative bg-white/70 backdrop-blur-xl border border-white/80 p-6 rounded-3xl shadow-2xl shadow-indigo-100/50">
+                    <div className="lg:col-span-5 relative anim-interactive-preview ">
+                        <img src="/images/rocket.png" alt="Interactive Mechanical Visualizer" height="300" width="400" className="rocket-launch max-md:hidden" />
+                        <div className="hero-magnetic-card relative bg-white/70 backdrop-blur-xl border border-white/80 p-6 rounded-3xl shadow-2xl shadow-indigo-100/50 hidden">
 
                             {/* Header elements inside card */}
                             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
@@ -275,7 +276,7 @@ const Hero = () => {
                         </div>
 
                         {/* Little absolute elements flying off */}
-                        <div className="absolute -bottom-6 -left-6 bg-amber-400 text-slate-900 px-4 py-3 rounded-2xl max-md:-left-3 flex items-center gap-2 font-bold text-xs shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                        <div className="hidden absolute -bottom-6 -left-6 bg-amber-400 text-slate-900 px-4 py-3 rounded-2xl max-md:-left-3 flex items-center gap-2 font-bold text-xs shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                             <Code className="w-4 h-4" /> Custom Code Architecture
                         </div>
                     </div>
