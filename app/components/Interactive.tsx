@@ -151,11 +151,10 @@ export const Interactive = () => {
 
 
     return (
-        <div>
+        <div id='sandbox' className="relative py-28 px-6 bg-slate-100 overflow-hidden" ref={mainRef}>
             <motion.section
-                id="sandbox"
                 ref={sandboxRef}
-                className="py-24 px-6 bg-slate-100 relative anim-sandbox"
+                className="py-26 px-6 bg-slate-100 relative anim-sandbox"
             >
                 {/* Subtle light effects */}
                 <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-200/40 rounded-full blur-[120px] pointer-events-none" />

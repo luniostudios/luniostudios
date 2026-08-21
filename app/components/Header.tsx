@@ -35,10 +35,11 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
   }, []);
 
   const navItems = [
-    { id: 'projects', label: `${t('header.portfolio')}`, href: '#portfolio' },
+    { id: 'portfolio', label: `${t('header.portfolio')}`, href: '/#portfolio' },
     { id: 'skills', label: `${t('header.skills')}`, href: '/#skills' },
-    { id: 'designLab', label: `${t('header.sandbox')}`, href: '#sandbox' },
-    { id: 'pricing', label: `${t('header.pricing')}`, href: '#pricing' },
+    { id: 'faq', label: `FAQ`, href: '/#faq' },
+    { id: 'sandbox', label: `${t('header.sandbox')}`, href: '/#sandbox' },
+    { id: 'pricing', label: `${t('header.pricing')}`, href: '/#pricing' },
   ];
 
   const scrollToSection = (sectionId: string, sectionHrf: string) => {

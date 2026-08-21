@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion } from 'motion/react';
 import { useSortable } from '@dnd-kit/react/sortable';
-import { Award } from 'lucide-react';
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 interface StarNode {

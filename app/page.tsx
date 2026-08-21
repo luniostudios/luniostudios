@@ -11,6 +11,7 @@ import { Interactive } from './components/Interactive';
 import Portfolio from './components/Portfolio';
 import Socials from './components/Socials';
 import Estimate from './components/Estimate';
+import FAQ from './components/FAQ';
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => {
@@ -33,6 +34,7 @@ function App() {
         <Hero />
         <Estimate />
         <Skills />
+        <FAQ />
         <Interactive />
         <Portfolio />
         <Footer />

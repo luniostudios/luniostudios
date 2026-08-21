@@ -20,6 +20,7 @@ const Hero = () => {
     const showcaseRef = useRef(null);
     const statsRef = useRef(null);
     const sandboxRef = useRef(null);
+    const rocketRef = useRef<HTMLImageElement>(null);
 
     // Dynamic Cursor Tracking
     useEffect(() => {
@@ -107,6 +108,21 @@ const Hero = () => {
                 { opacity: 1, scale: 1, duration: 1, ease: 'elastic.out(1, 0.75)' },
                 '-=0.2'
             );
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && rocketRef.current) {
+                gsap.to(rocketRef.current, {
+                    y: '-120vh',
+                    rotate: 0,
+                    opacity: 0,
+                    duration: 1.4,
+                    ease: 'power3.in',
+                    scrollTrigger: {
+                        trigger: heroRef.current,
+                        start: 'top top',
+                        toggleActions: 'play none none reverse',
+                    },
+                });
+            }
         }, mainRef);
 
         return () => ctx.revert();
@@ -199,7 +215,7 @@ const Hero = () => {
 
                     {/* Right Column: Interactive Mechanical Visualizer */}
                     <div className="lg:col-span-5 relative anim-interactive-preview ">
-                        <img src="/images/rocket.png" alt="Interactive Mechanical Visualizer" height="300" width="400" className="rocket-launch max-md:hidden" />
+                        <img ref={rocketRef} src="/images/rocket.png" alt="Rocket launching" height="300" width="400" className="rocket-launch max-md:hidden" />
                         <div className="hero-magnetic-card relative bg-white/70 backdrop-blur-xl border border-white/80 p-6 rounded-3xl shadow-2xl shadow-indigo-100/50 hidden">
 
                             {/* Header elements inside card */}
